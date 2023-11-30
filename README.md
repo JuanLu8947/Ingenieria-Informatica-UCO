@@ -1,1 +1,1 @@
-# Ingenier-a-Inform-tica-UCO
+# Ingeniería-Informática-UCO
