@@ -1,0 +1,9 @@
+print('Ejemplo de clear screen \n');
+
+print('Introduce un número --> ');
+read(dato);
+
+clearscreen;
+
+print('El número introducido es -> ');
+print(dato);

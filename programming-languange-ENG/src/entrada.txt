@@ -1,0 +1,8 @@
+if (-PI> 0) print true;
+
+dato = 2;
+print dato;
+
+if (dato > 0) print dato; else print -dato;
+
+

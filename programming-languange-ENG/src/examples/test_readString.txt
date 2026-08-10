@@ -1,0 +1,6 @@
+
+print('Introduce una cadena de caracteres --> ');
+read_string(dato);
+
+print('La cadena introducida es -> ');
+print(dato);
