@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/client-main.dir/client-main.cc.o -o client-main  libclient.a ../person/libperson.a ../basket/libbasket.a ../computer/libcomputer.a ../tv/libtv.a ../product/libproduct.a 

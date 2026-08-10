@@ -1,0 +1,3 @@
+/mnt/c/Users/Propietario/Desktop/JuanLu/UCO/2Carrera/ProgramacionOrientadaObjetos/practica7_POO/marketplace/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+/mnt/c/Users/Propietario/Desktop/JuanLu/UCO/2Carrera/ProgramacionOrientadaObjetos/practica7_POO/marketplace/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Propietario/Desktop/JuanLu/UCO/2Carrera/ProgramacionOrientadaObjetos/practica7_POO/marketplace/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

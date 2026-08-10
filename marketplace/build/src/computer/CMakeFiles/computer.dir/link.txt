@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcomputer.a 
+/usr/bin/ranlib libcomputer.a

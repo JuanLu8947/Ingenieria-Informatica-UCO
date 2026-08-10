@@ -1,0 +1,13 @@
+add_library(app app.h)
+target_link_libraries(app PUBLIC person)
+target_link_libraries(app PUBLIC product)
+target_link_libraries(app PUBLIC computer)
+target_link_libraries(app PUBLIC tv)
+target_link_libraries(app PUBLIC client)
+target_link_libraries(app PUBLIC client)
+target_link_libraries(app PUBLIC basket)
+target_link_libraries(app PUBLIC market)
+target_include_directories(market PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+ 
+add_executable(app-main app_main.cc)
+target_link_libraries(app-main PUBLIC app)

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/computer-main.dir/computer-main.cc.o -o computer-main  libcomputer.a ../product/libproduct.a 

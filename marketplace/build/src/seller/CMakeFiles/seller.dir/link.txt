@@ -1,0 +1,2 @@
+/usr/bin/ar qc libseller.a 
+/usr/bin/ranlib libseller.a

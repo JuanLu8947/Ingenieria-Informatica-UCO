@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/client-test.dir/client-test.cc.o -o client-test  ../src/client/libclient.a ../src/product/libproduct.a ../src/basket/libbasket.a ../lib/libgtest_main.a ../lib/libgmock_main.a ../lib/libgmock.a ../lib/libgtest.a ../src/computer/libcomputer.a ../src/tv/libtv.a ../src/product/libproduct.a ../src/person/libperson.a 

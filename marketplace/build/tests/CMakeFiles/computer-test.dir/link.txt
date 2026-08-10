@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/computer-test.dir/computer-test.cc.o -o computer-test  ../src/computer/libcomputer.a ../lib/libgtest_main.a ../lib/libgmock_main.a ../lib/libgmock.a ../lib/libgtest.a ../src/product/libproduct.a 

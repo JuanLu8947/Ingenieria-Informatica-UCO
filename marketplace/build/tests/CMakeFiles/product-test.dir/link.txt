@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/product-test.dir/product-test.cc.o -o product-test  ../src/product/libproduct.a ../lib/libgtest_main.a ../lib/libgmock_main.a ../lib/libgmock.a ../lib/libgtest.a 

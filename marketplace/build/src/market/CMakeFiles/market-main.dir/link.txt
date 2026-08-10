@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/market-main.dir/market-main.cc.o -o market-main  libmarket.a ../client/libclient.a ../seller/libseller.a ../person/libperson.a ../basket/libbasket.a ../computer/libcomputer.a ../tv/libtv.a ../product/libproduct.a 

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/seller-main.dir/seller-main.cc.o -o seller-main  libseller.a ../person/libperson.a ../basket/libbasket.a ../computer/libcomputer.a ../tv/libtv.a ../product/libproduct.a 

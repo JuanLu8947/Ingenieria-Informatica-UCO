@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/tv-test.dir/tv-test.cc.o -o tv-test  ../src/tv/libtv.a ../lib/libgtest_main.a ../lib/libgmock_main.a ../lib/libgmock.a ../lib/libgtest.a ../src/product/libproduct.a 
