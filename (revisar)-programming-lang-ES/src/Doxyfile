@@ -1,0 +1,81 @@
+# Doxyfile 1.8.11
+PROJECT_NAME           = "Language Processors"
+
+OUTPUT_LANGUAGE        = English
+
+# The private atributes and functions are shown
+EXTRACT_PRIVATE        = YES
+
+# The C++ files are shown: "cpp" files
+SOURCE_BROWSER         = YES
+
+GENERATE_LATEX         = NO
+
+#Modified in examples 7, 16
+INPUT = interpreter.cpp parser error includes table ast
+
+# If the value of the INPUT tag contains directories, you can use the
+# FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
+# *.h) to filter out the source-files in the directories.
+#
+# Note that for custom extensions or not directly supported extensions you also
+# need to set EXTENSION_MAPPING for the extension otherwise the files are not
+# read by doxygen.
+#
+# If left blank the following patterns are tested:*.c, *.cc, *.cxx, *.cpp,
+# *.c++, *.java, *.ii, *.ixx, *.ipp, *.i++, *.inl, *.idl, *.ddl, *.odl, *.h,
+# *.hh, *.hxx, *.hpp, *.h++, *.cs, *.d, *.php, *.php4, *.php5, *.phtml, *.inc,
+# *.m, *.markdown, *.md, *.mm, *.dox, *.py, *.pyw, *.f90, *.f, *.for, *.tcl,
+# *.vhd, *.vhdl, *.ucf, *.qsf, *.as and *.js.
+
+FILE_PATTERNS          =  *.y *.l *.hpp *.cpp
+#FILE_PATTERNS          =  *.hpp *.cpp
+
+
+
+# Doxygen selects the parser to use depending on the extension of the files it
+# parses. With this tag you can assign which parser to use for a given
+# extension. Doxygen has a built-in mapping, but you can override or extend it
+# using this tag. The format is ext=language, where ext is a file extension, and
+# language is one of the parsers supported by doxygen: IDL, Java, Javascript,
+# C#, C, C++, D, PHP, Objective-C, Python, Fortran (fixed format Fortran:
+# FortranFixed, free formatted Fortran: FortranFree, unknown formatted Fortran:
+# Fortran. In the later case the parser tries to guess whether the code is fixed
+# or free formatted code, this is the default for Fortran type files), VHDL. For
+# instance to make doxygen treat .inc files as Fortran files (default is PHP),
+# and .f files as C (default is Fortran), use: inc=Fortran f=C.
+#
+# Note: For files without extension you can use no_extension as a placeholder.
+#
+# Note that for custom extensions you also need to set FILE_PATTERNS otherwise
+# the files are not read by doxygen.
+
+# yacc and lex files are treated as C files
+
+EXTENSION_MAPPING      = y=C l=C
+
+# If the ENABLE_PREPROCESSING tag is set to YES, 
+# doxygen will evaluate all C-preprocessor directives found in the sources and include files.
+# The default value is: YES.
+
+ENABLE_PREPROCESSING  = NO
+
+# If the UML_LOOK tag is set to YES, doxygen will generate inheritance and
+# collaboration diagrams in a style similar to the OMG's Unified Modeling
+# Language.
+# The default value is: NO.
+# This tag requires that the tag HAVE_DOT is set to YES.
+
+UML_LOOK            = NO
+
+# If you set the HAVE_DOT tag to YES then doxygen will assume the dot tool is
+# available from the path. This tool is part of Graphviz (see:
+# http://www.graphviz.org/), a graph visualization toolkit from AT&T and Lucent
+# Bell Labs. The other options in this section have no effect if this option is
+# set to NO
+# The default value is: YES.
+
+HAVE_DOT			= YES
+
+
+GENERATE_TREEVIEW      = YES
