@@ -1,0 +1,5 @@
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej4-P4/CMakeFiles/edit_cache.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej4-P4/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej4-P4/Codigo/CMakeFiles/p4.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej4-P4/Codigo/CMakeFiles/edit_cache.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej4-P4/Codigo/CMakeFiles/rebuild_cache.dir

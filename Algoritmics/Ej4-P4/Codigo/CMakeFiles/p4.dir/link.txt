@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/p4.dir/main.cpp.o CMakeFiles/p4.dir/medioNivel.cpp.o CMakeFiles/p4.dir/punto.cpp.o CMakeFiles/p4.dir/recta.cpp.o CMakeFiles/p4.dir/serietemporal.cpp.o CMakeFiles/p4.dir/algoritmos.cpp.o CMakeFiles/p4.dir/auxiliares.cpp.o CMakeFiles/p4.dir/tiempos.cpp.o -o ../p4 

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/p3.dir/main.cpp.o CMakeFiles/p3.dir/medioNivel.cpp.o CMakeFiles/p3.dir/algoritmos.cpp.o CMakeFiles/p3.dir/punto.cpp.o CMakeFiles/p3.dir/recta.cpp.o CMakeFiles/p3.dir/serietemporal.cpp.o CMakeFiles/p3.dir/auxiliares.cpp.o -o ../p3 

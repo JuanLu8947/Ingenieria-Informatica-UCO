@@ -1,0 +1,8 @@
+Almeria-0
+Cadiz-1
+Cordoba-2
+Granada-3
+Huelva-4
+Jaen-5
+Malaga-6
+Sevilla-7

@@ -1,0 +1,3 @@
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej5-P5/CMakeFiles/p5.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej5-P5/CMakeFiles/edit_cache.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/3Carrera/Algoritmica/Pract-Alg/Stdio/Ej5-P5/CMakeFiles/rebuild_cache.dir

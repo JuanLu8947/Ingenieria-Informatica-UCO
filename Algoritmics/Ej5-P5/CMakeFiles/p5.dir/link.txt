@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/p5.dir/main.cpp.o CMakeFiles/p5.dir/funcionesMedioNivel.cpp.o CMakeFiles/p5.dir/funcionesGrafos.cpp.o CMakeFiles/p5.dir/funcionesNReinas.cpp.o CMakeFiles/p5.dir/tiempos.cpp.o -o p5 

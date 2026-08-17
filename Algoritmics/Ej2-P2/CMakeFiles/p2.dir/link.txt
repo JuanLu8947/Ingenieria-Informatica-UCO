@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/p2.dir/main2.cpp.o CMakeFiles/p2.dir/medioNivel.cpp.o CMakeFiles/p2.dir/tiempos.cpp.o CMakeFiles/p2.dir/matriz.cpp.o -o p2 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/p1.dir/main.cpp.o CMakeFiles/p1.dir/medioNivel.cpp.o CMakeFiles/p1.dir/algoritmos.cpp.o CMakeFiles/p1.dir/tiempos.cpp.o CMakeFiles/p1.dir/estadisticas.cpp.o CMakeFiles/p1.dir/auxiliares.cpp.o CMakeFiles/p1.dir/sistemaEcuaciones.cpp.o CMakeFiles/p1.dir/ClaseTiempo.cpp.o CMakeFiles/p1.dir/funcHanoi.cpp.o -o p1 
