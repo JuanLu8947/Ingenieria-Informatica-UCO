@@ -1,0 +1,76 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "calibrate (with images)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/../build-${workspaceFolderBasename}/calibrate",
+      "args": [
+        "--verbose",
+        "--size=0.03",
+        "--rows=5",
+        "--cols=6",
+        "sal.yml",
+        "${workspaceFolder}/data/logitech_000_000.png",
+        "${workspaceFolder}/data/logitech_000_001.png",
+        "${workspaceFolder}/data/logitech_000_002.png",
+        "${workspaceFolder}/data/logitech_000_003.png",
+        "${workspaceFolder}/data/logitech_000_004.png",
+        "${workspaceFolder}/data/logitech_000_005.png",
+        "${workspaceFolder}/data/logitech_000_006.png",
+        "${workspaceFolder}/data/logitech_000_007.png",
+        "${workspaceFolder}/data/logitech_000_008.png",
+        "${workspaceFolder}/data/logitech_000_009.png"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/../build-${workspaceFolderBasename}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "undistort (elp_8.png)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/../build-${workspaceFolderBasename}/undistort",
+      "args": [
+        "${workspaceFolder}/data/elp_hd/elp.xml",
+        "${workspaceFolder}/data/elp_hd/elp_8.png",
+        "sal.png"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/../build-${workspaceFolderBasename}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

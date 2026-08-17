@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<image-width>800</image-width>
+<image-height>600</image-height>
+<error>1.3084373474121094e+00</error>
+<camera-matrix type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    1.2052657281326283e+03 0. 4.6385210896962366e+02 0.
+    1.2006449550224522e+03 3.0352082628394055e+02 0. 0. 1.</data></camera-matrix>
+<distortion-coefficients type_id="opencv-matrix">
+  <rows>1</rows>
+  <cols>5</cols>
+  <dt>d</dt>
+  <data>
+    -3.0237873265779841e-01 -2.1815477306843603e+00
+    1.2660525215046358e-02 1.0336584070180930e-02 9.3329288834721176e+00</data></distortion-coefficients>
+<rvec type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>1</cols>
+  <dt>d</dt>
+  <data>
+    0. 0. 0.</data></rvec>
+<tvec type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>1</cols>
+  <dt>d</dt>
+  <data>
+    0. 0. 0.</data></tvec>
+</opencv_storage>
