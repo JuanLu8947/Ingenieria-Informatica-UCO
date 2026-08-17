@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros de Realce - Sharpening</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #8e44ad 50%, #3498db 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #e74c3c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .tech-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        .algorithm-box {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #2ecc71;
+        }
+        
+        .algorithm-box h3 {
+            color: #f39c12;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .filter-box {
+            background: rgba(116, 5, 159, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #4a0068;
+        }
+        
+        .filter-box h3 {
+            color: #f1ceff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .parameter-demo {
+            background: rgba(241, 156, 18, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #f39c12;
+        }
+        
+        .parameter-demo h3 {
+            color: #f39c12;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(241, 196, 15, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .demo-note {
+            background: rgba(230, 126, 34, 0.3);
+            border: 2px solid #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .comparison-box h4 {
+            color: #f39c12;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #f39c12;
+        }
+        
+        .function-list {
+            background: rgba(52, 73, 94, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .function-item {
+            background: rgba(46, 204, 113, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .function-item code {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .matrix-display {
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .window-description {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .window-box {
+            flex: 1;
+            background: rgba(175, 17, 0, 0.2);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid #e74c3c;
+            text-align: center;
+        }
+        
+        .window-box h4 {
+            color: #ff1900;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>FILTROS DE REALCE</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Sharpening Filters</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 3 - Ejercicio 2</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; background: linear-gradient(45deg, #e74c3c, #c0392b); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3em;">🔍</div>
+                    <p style="margin-top: 15px; font-size: 1.2em;">Detección de Bordes</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; background: linear-gradient(45deg, #3498db, #2980b9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3em;">✨</div>
+                    <p style="margin-top: 15px; font-size: 1.2em;">Realce de Nitidez</p>
+                </div>
+            </div>
+            
+            <div class="demo-note" style="margin-top: 30px;">
+                <strong>Técnica:</strong> Mejora de nitidez mediante filtros Laplacianos y Difference of Gaussians (DoG)
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es el Sharpening? -->
+    <div class="slide">
+        <h2>🎯 ¿Qué es el Sharpening?</h2>
+        <div class="tech-box">
+            <h3>Filtros de Realce de Imágenes</h3>
+            <p style="font-size: 1.3em;">Técnica que mejora la <strong>nitidez</strong> y <strong>definición</strong> 
+            de los detalles mediante la detección y amplificación de bordes.</p>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Descomposición de la imagen:</strong><br>
+            I = I_l + I_h<br>
+            <em>(I = imagen original, I_l = componente suave, <br> I_h = detalles/bordes)</em><br><br>
+            
+            <strong>Técnica de realce:</strong><br>
+            O = I + I_h<br>
+            <em>(O = imagen realzada, añadimos más detalles a la original)</em><br><br>
+            
+            <strong>Usando Laplaciano:</strong><br>
+            I_h ≈ -∇²I<br>
+            <em>(∇² = operador Laplaciano, detecta cambios bruscos)</em><br>
+            O = I + (-∇²I) = ([1] + (-∇²)) * I<br>
+            <em>([1] = filtro impulso: todos valores = 0 salvo centro = 1.0)</em><br>
+            <em>((-∇²) = Laplaciano negativo que realza bordes)</em>
+        </div>
+        
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Imagen Original</h4>
+                <p>Detalles difusos, bordes suaves</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Imagen Realzada</h4>
+                <p>Bordes definidos, detalles nítidos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Tipos de Filtros -->
+    <div class="slide">
+        <h2>🔧 Tipos de Filtros Implementados</h2>
+        <div class="filter-box">
+            <h3>1. Laplaciano de 4 Vecinos</h3>
+            <div class="matrix-display">
+[0  1  0]<br>
+[1 -4  1]<br>
+[0  1  0]
+            </div>
+            <p>Detecta bordes horizontales y verticales principalmente</p>
+        </div>
+        
+        <div class="filter-box">
+            <h3>2. Laplaciano de 8 Vecinos</h3>
+            <div class="matrix-display">
+[1  1  1]<br>
+[1 -8  1]<br>
+[1  1  1]
+            </div>
+            <p>Detecta bordes en todas las direcciones, incluyendo diagonales</p>
+        </div>
+        
+        <div class="filter-box">
+            <h3>Filtros de Enfoque Correspondientes</h3>
+            <div class="matrix-display">
+4-vecinos: 8-vecinos:<br>
+[ 0 -1  0] [ 0 -1  0]<br>
+[-1  5 -1] [-1  9 -1]<br>
+[ 0 -1  0] [ 0 -1  0]
+            </div>
+            <p><strong>Construcción:</strong> S = [1] + (-∇²)<br>
+            <em>• S: filtro de sharpening<br>
+            • [1] = filtro impulso unitario: matriz 3×3 con todos valores = 0 salvo centro = 1.0<br>
+            • (-∇²) = Laplaciano negativo (añade contraste en bordes)<br>
+            • Valores centrales: 5 = 1+4, 9 = 1+8</em></p>
+        </div>
+        
+        <div class="filter-box">
+            <h3>3. DoG (Difference of Gaussians)</h3>
+            <div class="formula-box">
+                ∇² ≈ DoG(σ₁,σ₂) = G_σ₂ - G_σ₁<br>
+                <em>(G_σ = filtro Gaussiano con desviación σ)</em><br>
+                donde σ₁ < σ₂ <em>(σ₁ = radio pequeño, σ₂ = radio grande)</em><br><br>
+                Filtro enfoque: S = [1] + (-DoG)<br>
+                <em>(S = filtro de sharpening final)</em>
+            </div>
+            <p>Aproxima el Laplaciano usando diferencia de Gaussianos</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: Construcción del Filtro de Realce -->
+    <div class="slide">
+        <h2>⚙️ Construcción del Filtro de Realce</h2>
+        <div class="algorithm-box">
+            <h3>Proceso de Construcción</h3>
+            <ol style="font-size: 1.2em;">
+                <li><strong>Seleccionar filtro base:</strong> Laplaciano 4/8 o DoG</li>
+                <li><strong>Invertir signo:</strong> Filtro_negativo = -Filtro_base</li>
+                <li><strong>Añadir impulso:</strong> Filtro_negativo[centro] += 1.0</li>
+            </ol>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Filtro_realce = -Laplaciano + δ(impulso_central)</strong>
+        </div>
+        
+        <div class="tech-box">
+            <h3>¿Por qué funciona?</h3>
+            <p style="font-size: 1.2em;">
+            • El <strong>Laplaciano negativo</strong> invierte la detección de bordes<br>
+            • El <strong>impulso central</strong> preserva la imagen original<br>
+            • El resultado realza bordes manteniendo el contenido base
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 5: Parámetros de Control -->
+    <div class="slide">
+        <h2>🎛️ Parámetros de Control</h2>
+        <div class="parameter-demo">
+            <h3>FILTER (Tipo de Filtro)</h3>
+            <ul>
+                <li><strong>0:</strong> Laplaciano 4-vecinos (bordes cardinales)</li>
+                <li><strong>1:</strong> Laplaciano 8-vecinos (todos los bordes)</li>
+                <li><strong>2:</strong> DoG (control multi-escala)</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>R1 y R2 (Solo para DoG)</h3>
+            <p>Controlan los radios de los filtros gaussianos</p>
+            <ul>
+                <li><strong>R1 pequeño, R2 grande:</strong> Realce suave, menos ruido</li>
+                <li><strong>R1 y R2 cercanos:</strong> Realce localizado, más detalles</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>CIRC (Modo de Bordes)</h3>
+            <ul>
+                <li><strong>0:</strong> Expansión con ceros (relleno negro)</li>
+                <li><strong>1:</strong> Expansión circular (imagen envuelta)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: Interfaz Interactiva -->
+    <div class="slide">
+        <h2>🖥️ Interfaz Interactiva</h2>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>INPUT</h4>
+                <p>Imagen original del ciclista</p>
+            </div>
+            <div class="window-box">
+                <h4>OUTPUT</h4>
+                <p>Resultado del realce en tiempo real</p>
+            </div>
+        </div>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>LAPLACIAN</h4>
+                <p>Visualización del filtro aplicado<br>
+                🔵 Azul = valores negativos<br>
+                🔴 Rojo = valores positivos</p>
+            </div>
+            <div class="window-box">
+                <h4>PARAMETERS</h4>
+                <p>Controles deslizantes<br>
+                FILTER, R1, R2, CIRC, CONTRAST</p>
+            </div>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Comando:</strong> <code>../build-sharpening/sharpen -i data/ciclista_original.jpg output.png</code>
+        </div>
+    </div>
+
+    <!-- Slide 7: Mi Implementación Completa -->
+    <div class="slide">
+        <h2>⚙️ Mi Implementación Completa</h2>
+        <div class="function-list">
+            <div class="function-item">
+                <code>fsiv_create_lap4_filter()</code><br>
+                Crea matriz 3×3 del Laplaciano de 4 vecinos
+            </div>
+            <div class="function-item">
+                <code>fsiv_create_lap8_filter()</code><br>
+                Crea matriz 3×3 del Laplaciano de 8 vecinos
+            </div>
+            <div class="function-item">
+                <code>fsiv_create_dog_filter(r1, r2)</code><br>
+                Construye DoG restando gaussianos expandidos
+            </div>
+            <div class="function-item">
+                <code>fsiv_create_sharpening_filter(type, r1, r2)</code><br>
+                Combina -Laplaciano + impulso central
+            </div>
+            <div class="function-item">
+                <code>fsiv_image_sharpening()</code><br>
+                Aplica filtro: expansión → convolución → recorte
+            </div>
+        </div>
+        
+        <div style="background: rgba(46, 204, 113, 0.3); padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <strong>✅ Estado:</strong> Todas las funciones implementadas y probadas. Tests automáticos superados.
+        </div>
+    </div>
+
+    <!-- Slide 8: Efectos de los Parámetros -->
+    <div class="slide">
+        <h2>📈 Efectos al Variar Parámetros</h2>
+        <div class="parameter-demo">
+            <h3>Impacto del Tipo de Filtro</h3>
+            <ul>
+                <li><strong>LAP4:</strong> Realce suave, bordes principales</li>
+                <li><strong>LAP8:</strong> Realce intenso, todos los detalles</li>
+                <li><strong>DoG:</strong> Realce controlable, menos artefactos</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Impacto de los Radios (DoG)</h3>
+            <ul>
+                <li><strong>R1↓, R2↑:</strong> Realce global, suave</li>
+                <li><strong>R1↑, R2↓:</strong> Realce local, detalles finos</li>
+                <li><strong>Diferencia grande:</strong> Más contraste</li>
+                <li><strong>Diferencia pequeña:</strong> Efecto sutil</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Impacto del Modo Circular</h3>
+            <ul>
+                <li><strong>CIRC=0:</strong> Pueden aparecer artefactos en bordes</li>
+                <li><strong>CIRC=1:</strong> Eliminación de artefactos, posibles discontinuidades</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 9: Demostración en Vivo -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <div style="background: linear-gradient(45deg, #e74c3c, #c0392b); padding: 30px; border-radius: 20px; margin: 30px 0;">
+                <h3 style="margin: 0; font-size: 2.5em;">🎥 Modo Interactivo</h3>
+                <p style="font-size: 1.5em; margin: 20px 0;">Demostración práctica con ciclista_original.jpg</p>
+            </div>
+            
+            <div style="background: rgba(52, 152, 219, 0.3); padding: 20px; border-radius: 15px; margin: 30px 0;">
+                <h4 style="color: #3498db;">Secuencia de Demostración:</h4>
+                <ol style="font-size: 1.3em; text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>Comparar filtros Laplacianos (FILTER 0 vs 1) en ciclista</li>
+                    <li>Explorar DoG con diferentes radios (σ₁, σ₂)</li>
+                    <li>Mostrar efecto del modo circular vs relleno ceros</li>
+                    <li>Analizar visualización Laplaciano (azul=neg, rojo=pos)</li>
+                    <li>Encontrar configuración óptima para realzar detalles</li>
+                    <li>Comparar resultado final vs original</li>
+                </ol>
+            </div>
+            
+            <div class="demo-note">
+                <strong>Objetivo:</strong> Mejorar nitidez del ciclista realzando detalles finos manteniendo naturalidad
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USM - Unsharp Mask Enhancement</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f39c12);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #f39c12;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .tech-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        
+        .algorithm-box {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #2ecc71;
+        }
+        
+        .algorithm-box h3 {
+            color: #f39c12;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .parameter-demo {
+            background: rgba(241, 156, 18, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #f39c12;
+        }
+        
+        .parameter-demo h3 {
+            color: #f39c12;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .comparison-box h4 {
+            color: #f39c12;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .demo-note {
+            background: rgba(230, 126, 34, 0.3);
+            border: 2px solid #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #f39c12;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .demo-image {
+            max-width: 300px;
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .demo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .window-description {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .window-box {
+            flex: 1;
+            background: rgba(231, 76, 60, 0.2);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid #e74c3c;
+            text-align: center;
+        }
+        
+        .window-box h4 {
+            color: #e74c3c;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>USM Enhancement</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Unsharp Mask - Mejora por Enmascaramiento No Nítido</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 3 - Ejercicio 1</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+                <div>
+                    <img src="usm_enhance/data/radiografia.png" alt="Imagen Original" class="demo-image">
+                    <div style="text-align: center; margin-top: 10px; color: #f39c12;">
+                        <strong>Imagen original</strong>
+                    </div>
+                </div>
+                <div style="font-size: 3em; color: #f39c12;">→</div>
+                <div>
+                    <img src="usm.PNG" alt="Imagen con USM" class="demo-image">
+                    <div style="text-align: center; margin-top: 10px; color: #f39c12;">
+                        <strong>Resultado con USM</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-note" style="margin-top: 30px;">
+                <strong>Objetivo:</strong> Mejorar nitidez y detalles reforzando altas frecuencias
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es USM? -->
+    <div class="slide">
+        <h2>🎯 ¿Qué es Unsharp Mask?</h2>
+        <div class="tech-box">
+            <h3>Técnica de mejora de nitidez</h3>
+            <p style="font-size: 1.4em;">Realza los detalles y bordes de una imagen 
+            restando una versión suavizada (máscara) y añadiendo una fracción 
+            de esa diferencia a la imagen original.</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>💡 ¿Cómo funciona?</h3>
+            <ul style="font-size: 1.3em;">
+                <li><strong>Paso 1:</strong> Crear una versión muy suavizada de la imagen (elimina detalles)</li>
+                <li><strong>Paso 2:</strong> Restar esa versión borrosa de la original (nos quedamos solo con los detalles)</li>
+                <li><strong>Paso 3:</strong> Añadir esos detalles amplificados de vuelta a la imagen</li>
+                <li><strong>Resultado:</strong> Los bordes y texturas se ven más definidos</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Paradoja:</strong> Se llama "no nítido" pero mejora la nitidez 🤔
+        </div>
+    </div>
+
+    <!-- Slide 3: Fórmula básica -->
+    <div class="slide">
+        <h2>📊 Fórmula Matemática</h2>
+        <div class="formula-box">
+            <strong>O = (g+1) · I - g · I<sub>L</sub></strong>
+        </div>
+        
+        <div style="margin: 30px 0; font-size: 1.3em;">
+            <strong>Donde:</strong><br>
+            <strong style="color: #f39c12;">I</strong> = imagen original<br>
+            <strong style="color: #f39c12;">I<sub>L</sub></strong> = versión de bajas frecuencias (filtro Gaussiano/caja con radio r)<br>
+            <strong style="color: #f39c12;">g</strong> = ganancia del realce (0.0 - 3.0)<br>
+            <strong style="color: #f39c12;">O</strong> = imagen de salida mejorada
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Formulación equivalente con máscara:</h3>
+            <div class="formula-box" style="background: rgba(46, 204, 113, 0.2); border-color: #2ecc71;">
+                <strong>mask = I - I<sub>L</sub></strong><br>
+                <strong>O = I + g · mask</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Parámetros principales -->
+    <div class="slide">
+        <h2>🎛️ Parámetros de Control</h2>
+        <div class="parameter-demo">
+            <h3>g (ganancia) - Intensidad del realce</h3>
+            <div class="comparison-container">
+                <div class="comparison-box">
+                    <h4>g = 0.5</h4>
+                    <p>Realce sutil</p>
+                    <p>✅ Natural</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>g = 1.0</h4>
+                    <p>Realce moderado</p>
+                    <p>✅ Equilibrado</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>g = 2.0</h4>
+                    <p>Realce fuerte</p>
+                    <p>⚠️ Puede crear halos</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>r (radio) - Tamaño del filtro de suavizado</h3>
+            <div class="comparison-container">
+                <div class="comparison-box">
+                    <h4>r = 1-2</h4>
+                    <p>Detalles finos</p>
+                    <p>Texturas pequeñas</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>r = 3-5</h4>
+                    <p>Equilibrio óptimo</p>
+                    <p>Contornos medios</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>r > 10</h4>
+                    <p>Contornos gruesos</p>
+                    <p>Efecto dramático</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Mi implementación -->
+    <div class="slide">
+        <h2>⚙️ Mi Implementación</h2>
+        <div class="algorithm-box">
+            <h3>Función principal: fsiv_usm_enhance()</h3>
+            <ol style="font-size: 1.2em;">
+                <li><strong>Crear filtro:</strong> Gaussiano o caja según parámetro</li>
+                <li><strong>Expandir imagen:</strong> Circular o relleno con ceros</li>
+                <li><strong>Convolución:</strong> Obtener versión de bajas frecuencias I<sub>L</sub></li>
+                <li><strong>Combinar:</strong> O = (g+1)·I - g·I<sub>L</sub> usando cv::addWeighted</li>
+                <li><strong>Conversión:</strong> Float32 → evita saturaciones</li>
+            </ol>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Funciones OpenCV utilizadas:</h3>
+            <ul style="font-size: 1.2em;">
+                <li><code>cv::getGaussianKernel()</code> - crear filtro Gaussiano</li>
+                <li><code>cv::copyMakeBorder()</code> - expansión de bordes</li>
+                <li><code>cv::addWeighted()</code> - combinación lineal de imágenes</li>
+                <li><code>cv::cvtColor()</code> - RGB ↔ HSV para procesado en color</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: Procesado en color -->
+    <div class="slide">
+        <h2>🎨 Procesado en Color</h2>
+        <div class="tech-box">
+            <h3>Problema con RGB directo:</h3>
+            <p style="font-size: 1.3em;">Aplicar USM en cada canal RGB por separado 
+            puede causar <strong>cambios de color indeseados</strong> y artefactos cromáticos.</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>✅ Solución: Procesado en HSV</h3>
+            <ol style="font-size: 1.2em;">
+                <li><strong>Convertir RGB → HSV</strong> con cv::cvtColor</li>
+                <li><strong>Aplicar USM solo al canal V</strong> (luminancia/brillo)</li>
+                <li><strong>Mantener H y S inalterados</strong> (tono y saturación)</li>
+                <li><strong>Convertir HSV → RGB</strong> para resultado final</li>
+            </ol>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Ventaja:</strong> Mejora la nitidez sin alterar los colores originales
+        </div>
+    </div>
+
+    <!-- Slide 7: Interfaz interactiva -->
+    <div class="slide">
+        <h2>🖥️ Interfaz del Programa</h2>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>'INPUT'</h4>
+                <p>Imagen original</p>
+            </div>
+            <div class="window-box">
+                <h4>'OUTPUT'</h4>
+                <p>Resultado en tiempo real</p>
+            </div>
+            <div class="window-box">
+                <h4>'UNSHARP MASK'</h4>
+                <p>Máscara de detalle (I - I<sub>L</sub>)</p>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Trackbars de Control:</h3>
+            <ul style="font-size: 1.3em;">
+                <li><strong>G (0-100):</strong> Ganancia × 0.1 → valores típicos 10-15</li>
+                <li><strong>R (0-222):</strong> Radio normalizado → valores típicos 30-45</li>
+                <li><strong>Filter (0-1):</strong> 0=Caja, 1=Gaussiano</li>
+                <li><strong>Circular (0-1):</strong> 0=Relleno, 1=Expansión circular</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Comando:</strong> <code>./build/usm_enhance -i data/radiografia.png output.png</code>
+        </div>
+    </div>
+
+    <!-- Slide 8: Efectos no deseados -->
+    <div class="slide">
+        <h2>⚠️ Efectos No Deseados</h2>
+        <div class="comparison-container">
+            <div class="comparison-box" style="background: rgba(231, 76, 60, 0.2); border: 2px solid #e74c3c;">
+                <h4>❌ Halos</h4>
+                <p><strong>Causa:</strong> g demasiado alto</p>
+                <p>Líneas claras/oscuras alrededor de bordes</p>
+                <p><strong>Solución:</strong> Reducir ganancia</p>
+            </div>
+            <div class="comparison-box" style="background: rgba(231, 76, 60, 0.2); border: 2px solid #e74c3c;">
+                <h4>❌ Amplificación de ruido</h4>
+                <p><strong>Causa:</strong> r muy pequeño + g alto</p>
+                <p>Texturas granulosas en zonas uniformes</p>
+                <p><strong>Solución:</strong> Aumentar radio o usar threshold</p>
+            </div>
+            <div class="comparison-box" style="background: rgba(231, 76, 60, 0.2); border: 2px solid #e74c3c;">
+                <h4>❌ Aspecto artificial</h4>
+                <p><strong>Causa:</strong> Parámetros excesivos</p>
+                <p>Imagen "sobreprocessada"</p>
+                <p><strong>Solución:</strong> Valores moderados</p>
+            </div>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>🎯 Configuración recomendada:</h3>
+            <div style="text-align: center; font-size: 1.4em; margin: 20px 0;">
+                <strong style="color: #007a33;">Trackbars: G=10-15, R=30-45</strong><br>
+                <strong style="color: #b1ffd1;">(g=1.0-1.5, r=0.15-0.20)</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Resultados -->
+    <div class="slide">
+        <h2>🎯 Resultados con Diferentes Parámetros</h2>
+        <div class="parameter-demo">
+            <h3>Demostración práctica:</h3>
+            <div style="font-size: 1.3em; line-height: 1.8;">
+                <strong>1. Imagen original:</strong> Sin realce, detalles suaves<br>
+                <strong>2. G=5, R=15:</strong> Realce muy sutil<br>
+                <strong>3. G=10, R=30:</strong> Equilibrio óptimo ✅<br>
+                <strong>4. G=20, R=15:</strong> Realce fuerte, riesgo de halos<br>
+                <strong>5. G=10, R=60:</strong> Realce de contornos amplios
+            </div>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>🔍 Qué observar en la máscara:</h3>
+            <ul style="font-size: 1.2em;">
+                <li>Valores <strong>positivos (blancos)</strong>: Bordes que se realzarán</li>
+                <li>Valores <strong>negativos (negros)</strong>: Zonas que se suavizarán</li>
+                <li><strong>Intensidad de la máscara</strong> proporcional al contraste local</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 10: Demostración final -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <div class="demo-note" style="font-size: 1.4em;">
+                <strong>Secuencia de demostración:</strong>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <ol style="font-size: 1.3em; text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    <li><strong>Compilar y ejecutar</strong><br>
+                        <code>mkdir build && cd build && cmake .. && make && ./test_common_code && cd ..</code>
+                        <code>./build/usm_enhance -i data/radiografia.png output.png</code></li>
+                    <li><strong>Mostrar imagen original</strong> - observar nivel de detalle</li>
+                    <li><strong>Variar ganancia (G)</strong> - del 5 al 20 en trackbar</li>
+                    <li><strong>Variar radio (R)</strong> - del 15 al 60 en trackbar</li>
+                    <li><strong>Mostrar la máscara</strong> - visualizar qué se realza</li>
+                    <li><strong>Comparación final</strong> - antes vs después con parámetros óptimos</li>
+                </ol>
+            </div>
+            
+            <div style="background: rgba(230, 126, 34, 0.3); padding: 25px; border-radius: 15px; margin-top: 40px;">
+                <strong>🎯 Objetivo:</strong> Demostrar cómo USM mejora la percepción de nitidez<br>
+                sin añadir información nueva, solo realzando lo que ya existe
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            } else if (e.key === 'Home') {
+                showSlide(0);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides - 1);
+            }
+        });
+    </script>
+</body>
+</html>

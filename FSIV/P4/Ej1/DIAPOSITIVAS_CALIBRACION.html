@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibración de Cámara - OpenCV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #3498db);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #3498db;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .tech-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        .algorithm-box {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #2ecc71;
+        }
+        
+        .algorithm-box h3 {
+            color: #3498db;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .parameter-demo {
+            background: rgba(155, 89, 182, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #9b59b6;
+        }
+        
+        .parameter-demo h3 {
+            color: #e4a1ff;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .comparison-box h4 {
+            color: #3498db;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .demo-note {
+            background: rgba(230, 126, 34, 0.3);
+            border: 2px solid #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #3498db;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .window-description {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .window-box {
+            flex: 1;
+            background: rgba(52, 152, 219, 0.2);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid #3498db;
+            text-align: center;
+        }
+        
+        .window-box h4 {
+            color: #3498db;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .steps-list {
+            background: rgba(46, 204, 113, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .matrix-display {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>📷 Calibración de Cámara</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Obtención de Parámetros Intrínsecos con OpenCV</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 4 - Ejercicio 1</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+                <div class="tech-box" style="border-left: 8px solid #3498db;">
+                    <h3 style="color: #3498db;">🎯 Objetivos</h3>
+                    <p>Calibrar cámara, corregir distorsión, y almacenar parámetros</p>
+                </div>
+            </div>
+            
+            <!-- <div class="demo-note" style="margin-top: 30px;">
+                📺 <strong>Demostración interactiva:</strong> Veremos el proceso completo paso a paso
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es la calibración? -->
+    <div class="slide">
+        <h2>🎯 ¿Qué es la Calibración de Cámara?</h2>
+        <div class="tech-box">
+            <h3>Proceso de obtención de parámetros</h3>
+            <p style="font-size: 1.4em;">La calibración nos permite obtener los parámetros intrínsecos de la cámara: 
+            matriz de cámara (fx, fy, cx, cy) y coeficientes de distorsión (k1, k2, k3, p1, p2).</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>💡 ¿Para qué sirve?</h3>
+            <ul style="font-size: 1.3em;">
+                <li>🔧 Corregir la distorsión de la lente</li>
+                <li>📐 Realizar medidas precisas en el mundo real</li>
+                <li>🎮 Aplicaciones de realidad aumentada</li>
+                <li>🤖 Visión por computador y robótica</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Herramienta:</strong> Utilizaremos un tablero de ajedrez como patrón conocido 📋
+        </div>
+    </div>
+
+    <!-- Slide 3: Parámetros intrínsecos -->
+    <div class="slide">
+        <h2>📊 Parámetros Intrínsecos</h2>
+        <div class="matrix-display">
+            <strong>Matriz de Cámara (K):</strong><br><br>
+            K = [fx  0   cx]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;[0   fy  cy]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;[0   0   1 ]
+        </div>
+        
+        <div style="margin: 30px 0; font-size: 1.3em;">
+            <strong>Donde:</strong><br>
+            • <code>fx, fy</code>: Distancias focales en píxeles<br>
+            • <code>cx, cy</code>: Coordenadas del punto principal<br>
+            • <code>k1, k2, k3</code>: Coeficientes distorsión radial<br>
+            • <code>p1, p2</code>: Coeficientes distorsión tangencial
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>🎯 Objetivo</h3>
+            <p>Estos parámetros describen completamente cómo la cámara proyecta puntos 3D del mundo real a píxeles 2D en la imagen.</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: El proceso de calibración -->
+    <div class="slide">
+        <h2>🔄 Proceso de Calibración</h2>
+        <div class="steps-list">
+            <h3 style="color: #2ecc71; margin-bottom: 20px;">Pasos del algoritmo:</h3>
+            <ol style="font-size: 1.3em; line-height: 1.8;">
+                <li>📷 <strong>Capturar</strong> múltiples vistas del tablero de ajedrez</li>
+                <li>🔍 <strong>Detectar</strong> esquinas con <code>cv::findChessboardCorners</code></li>
+                <li>✨ <strong>Refinar</strong> posiciones con <code>cv::cornerSubPix</code></li>
+                <li>📐 <strong>Generar</strong> puntos 3D del patrón conocido</li>
+                <li>🧮 <strong>Calibrar</strong> con <code>cv::calibrateCamera</code></li>
+                <li>💾 <strong>Guardar</strong> parámetros en formato XML/YML</li>
+            </ol>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Requisito:</strong> Mínimo 9 vistas válidas para una buena calibración 📸
+        </div>
+    </div>
+
+    <!-- Slide 5: Parámetros y Interfaz -->
+    <div class="slide">
+        <h2>🎛️ Parámetros e Interfaz</h2>
+        
+        <div class="parameter-demo">
+            <h3>📐 Parámetros del tablero</h3>
+            <ul style="font-size: 1.1em;">
+                <li><strong>ROWS (04/20):</strong> ✅ Filas de esquinas internas - debe ser exacto (4 para logitech)</li>
+                <li><strong>COLS (05/20):</strong> ✅ Columnas de esquinas internas - debe ser exacto (5 para logitech)</li>
+                <li><strong>Board size:</strong> [5 x 4] - formato interno OpenCV (cols x rows)</li>
+                <li><strong>Tamaño del cuadro:</strong> 3cm (--size=0.03) - escala real para medidas</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>🎯 Parámetros de refinamiento cornerSubPix</h3>
+            <ul style="font-size: 1.1em;">
+                <li><strong>W_R (04/20):</strong> Radio de ventana - balance precisión vs robustez</li>
+                <li><strong>ZZ_R (00/20):</strong> Radio zona cero - área excluida del cálculo</li>
+                <li><strong>EPS (4/6):</strong> Criterio de convergencia - precisión mínima (0.001-1.0)</li>
+                <li><strong>Max Iters (0100/1000):</strong> Máximo iteraciones - evita bucles infinitos</li>
+            </ul>
+        </div>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>📷 Ventana CHESSBOARD</h4>
+                <p>Imagen en vivo con esquinas detectadas y refinadas superpuestas</p>
+            </div>
+            <div class="window-box">
+                <h4>🎛️ Ventana PARAMS</h4>
+                <p>6 trackbars interactivos para experimentar en tiempo real</p>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>⌨️ Controles y efectos</h3>
+            <ul style="font-size: 1.1em;">
+                <li><code>ENTER</code>: Capturar vista válida | <code>SPACE</code>: Saltar | <code>ESC</code>: Calibrar</li>
+                <li><strong>ROWS/COLS incorrectos:</strong> Detección falla completamente</li>
+                <li><strong>W_R bajo (3-5):</strong> Más preciso, sensible a ruido</li>
+                <li><strong>W_R alto (10-15):</strong> Más robusto, puede desplazar esquinas</li>
+                <li><strong>EPS alto:</strong> Para antes, menos refinamiento</li>
+                <li><strong>Max Iters alto:</strong> Más iteraciones, mejor convergencia</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Slide 6: Corrección de Distorsión -->
+    <div class="slide">
+        <h2>🔧 Corrección de Distorsión</h2>
+        
+        <div class="comparison-container">
+            <div class="comparison-box" style="flex: 1; margin-right: 20px;">
+                <h4>❌ Imagen Original (con distorsión)</h4>
+                <img src="./data/elp_hd/elp_8.png" alt="Imagen con distorsión clara" 
+                     style="width: 100%; max-width: 400px; border: 3px solid #e74c3c; border-radius: 10px; margin: 10px 0;">
+                <p style="color: #ff6251; font-size: 0.95em;">Distorsión tipo "barril" muy visible - líneas rectas curvadas</p>
+            </div>
+            
+            <div class="comparison-box" style="flex: 1; margin-left: 20px;">
+                <h4>✅ Después de cv::undistort</h4>
+                <img src="./data/elp_hd/undist_elp_8.png" alt="Imagen corregida real" 
+                     style="width: 100%; max-width: 400px; border: 3px solid #27ae60; border-radius: 10px; margin: 10px 0;">
+                <p style="color: #00ff6a; font-size: 0.95em;">Geometría restaurada - líneas perfectamente rectas</p>
+            </div>
+        </div>
+        
+        <div class="algorithm-box" style="margin-top: 30px;">
+            <h3>⚙️ Métodos de corrección</h3>
+            <ul style="font-size: 1.2em;">
+                <li><code>cv::undistort</code>: Para imágenes individuales</li>
+                <li><code>cv::initUndistortRectifyMap + cv::remap</code>: Para vídeo (más eficiente)</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            ⚡ <strong>Demo real:</strong> Comparación directa elp_8.png vs elp_8_undistorted.png
+        </div>
+    </div>
+
+    <!-- Slide 9: Comandos de ejecución -->
+    <div class="slide">
+        <h2>⚡ Compilación y Ejecución</h2>
+        <div class="algorithm-box">
+            <h3>🔨 Compilar y testear el proyecto</h3>
+            <div class="matrix-display" style="text-align: left;">
+mkdir build && cd build && cmake .. && make && ./test_common_code && cd ../..
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>🚀 Ejecutar calibración</h3>
+            <div class="matrix-display" style="text-align: left;">
+# ✅ CONFIGURACIÓN CORRECTA para dataset logitech<br>
+../build-calibrate/calibrate --size=0.03 --rows=4 --cols=5 --verbose mi_calibracion.xml data/logitech_*.png
+<br><br>
+# ❌ Configuración anterior (NO funciona)<br>
+<span style="color: #e74c3c; text-decoration: line-through;">../build-calibrate/calibrate --size=0.03 --rows=6 --cols=9 --verbose mi_calibracion.xml data/logitech_*.png</span>
+<br><br>
+# 📷 Desde cámara web (ajustar rows/cols según tu tablero)<br>
+../build-calibrate/calibrate --camera=0 --size=0.03 --rows=4 --cols=5 --verbose mi_calibracion.xml
+<br><br>
+# 🎯 Sin interfaz gráfica (para scripts)<br>
+../build-calibrate/calibrate --size=0.03 --rows=4 --cols=5 mi_calibracion.xml data/logitech_*.png
+            </div>
+        </div>
+        
+        <div class="demo-note" style="margin-top: 15px;">
+            📋 <strong>Parámetros clave:</strong> Dataset logitech tiene tablero 6×5 cuadros = 5×4 esquinas internas → --rows=4 --cols=5
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>🔧 Corregir distorsión</h3>
+            <div class="matrix-display" style="text-align: left;">
+# Imagen<br>
+../build-calibrate/undistort ./data/logitech.xml ./data/logitech_000_00*.png img_corregida.jpg<br><br>
+# Vídeo<br>
+../build-calibrate/undistort -v ./data/logitech.xml ./data/tablero_000_000.avi video_corregido.avi
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Problemas de Webcam en WSL -->
+    <div class="slide">
+        <h2>⚠️ Webcam en WSL: Problemas y Soluciones</h2>
+        <div class="tech-box">
+            <h3 style="color: #e74c3c;"> Punto de partida</h3>
+            <p style="font-size: 1.3em;">Conectar una webcam en WSL es una tarea <strong>tediosa</strong>. </br>
+            WSL no tiene acceso directo a dispositivos USB, por lo que las cámaras no aparecen 
+            automáticamente en <code>/dev/video*</code> como en Linux nativo.</p>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3 style="color: #3498db;">Solución encontrada: usbipd + DroidCam</h3>
+            <div class="comparison-container">
+                <div class="comparison-box">
+                    <h4>💻 usbipd (Windows)</h4>
+                    <p>Herramienta oficial para compartir USB con WSL</p>
+                    <div class="matrix-display" style="font-size: 0.9em;">
+usbipd list<br>
+usbipd bind --busid X-X<br>
+usbipd attach --wsl --busid X-X
+                    </div>
+                </div>
+                <div class="comparison-box">
+                    <h4>📱 DroidCam</h4>
+                    <p>Usar móvil Android como webcam</p>
+                    <div class="matrix-display" style="font-size: 0.9em;">
+App móvil + Windows client<br>
+WiFi/USB connection<br>
+Aparece como cámara USB
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3 style="color: #e67e22;">🐛 Problemas reales encontrados</h3>
+            <ul style="font-size: 1.1em;">
+                <li><strong>Sintaxis cambiada:</strong> <code>usbipd wsl list</code> ya no existe</li>
+                <li><strong>"Device busy":</strong> Windows bloquea dispositivo si DroidCam está activo</li>
+                <li><strong>Bind obligatorio:</strong> Error "Device is not shared" requiere bind previo</li>
+                <li><strong>Conflictos de servicios:</strong> "Windows Camera Frame Server" no válido</li>
+                <li><strong>Proceso inestable:</strong> Falla durante grabación de vídeo</li>
+                <li><strong>Múltiples reintentos:</strong> Cerrar apps, bind, attach, repetir...</li>
+            </ul>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>🎯 Lección aprendida</h3>
+            <ul style="font-size: 1.2em;">
+                <li><strong>Para desarrollo:</strong> Dataset de imágenes es más confiable</li>
+                <li><strong>Para demos:</strong> Evita configuraciones complejas en vivo</li>
+                <li><strong>Para producción:</strong> Considera Linux nativo o Windows</li>
+                <li><strong>Para educación:</strong> Enfócate en el algoritmo, no en la infraestructura</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            📊 <strong>Decisión final:</strong> Dataset logitech.zip - Mismo proceso educativo, cero problemas técnicos
+        </div>
+    </div>
+
+    <!-- Slide 11: Demostración final -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <div class="tech-box">
+                <h3 style="color: #3498db;">🔍 Veremos en acción:</h3>
+                <ul style="font-size: 1.4em; text-align: left;">
+                    <li>Detección automática de esquinas</li>
+                    <li>Efecto de cambiar parámetros de refinamiento</li>
+                    <li>Proceso de calibración completo</li>
+                    <li>Antes y después de la corrección</li>
+                </ul>
+            </div>
+            
+            <div class="demo-note" style="margin-top: 40px;">
+                🎮 <strong>¡Manos a la obra!</strong><br>
+                Calibraremos una cámara real usando las imágenes del dataset logitech.zip
+            </div>
+            
+            <div class="parameter-demo" style="margin-top: 40px;">
+                <h3>🎯 Puntos clave a observar</h3>
+                <ul style="font-size: 1.2em;">
+                    <li>Cómo afecta el radio de ventana a la precisión</li>
+                    <li>Importancia de tener múltiples vistas</li>
+                    <li>Calidad visual de la corrección final</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+    </script>
+</body>
+</html>

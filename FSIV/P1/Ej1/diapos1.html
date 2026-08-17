@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control CBG - Contraste, Brillo y Gamma</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #f1c40f;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .formula {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5em;
+            text-align: center;
+            margin: 20px 0;
+            border-left: 5px solid #f1c40f;
+        }
+        
+        .parameter-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .parameter-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .parameter-box p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(241, 196, 15, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .demo-note {
+            background: rgba(46, 204, 113, 0.3);
+            border: 2px solid #2ecc71;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .demo-image {
+            max-width: 400px;
+            max-height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin: 20px auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .demo-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>Control de Contraste, Brillo y Gamma</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">FSIV - Práctica 1 - Ejercicio 1</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">Transformaciones CBG en Imágenes Digitales</p>
+            
+            <img src="cbg_process/data/ciclista_original.jpg" alt="Ciclista Original" class="demo-image">
+            
+            <div class="demo-note" style="margin-top: 20px;">
+                <strong>Imagen de demostración:</strong> ciclista_original.jpg<br>
+                <em>Esta imagen será procesada en tiempo real durante la demostración</em>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Introducción técnica -->
+    <div class="slide">
+        <h2>🎯 ¿Qué son las transformaciones CBG?</h2>
+        <ul>
+            <li><span class="highlight">Contraste</span>: Modifica la diferencia entre píxeles claros y oscuros</li>
+            <li><span class="highlight">Brillo</span>: Suma/resta un valor constante a todos los píxeles</li>
+            <li><span class="highlight">Gamma</span>: Corrección no lineal que afecta tonos medios</li>
+        </ul>
+        
+        <div style="margin-top: 50px;">
+            <p style="font-size: 1.4em; text-align: center;">
+                <strong>Aplicaciones:</strong> Mejora de fotografías, corrección de monitor, 
+                procesamiento médico, realce de imágenes
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 3: Contraste -->
+    <div class="slide">
+        <h2>📊 Parámetro: CONTRASTE</h2>
+        <div class="parameter-box">
+            <h3>¿Cómo funciona?</h3>
+            <p>Multiplica cada píxel por un factor constante</p>
+            <div class="formula">
+                Píxel_salida = Píxel_entrada × factor_contraste
+            </div>
+        </div>
+        
+        <ul>
+            <li><strong>Factor < 1.0:</strong> Reduce contraste → imagen más apagada</li>
+            <li><strong>Factor = 1.0:</strong> Sin cambios → imagen original</li>
+            <li><strong>Factor > 1.0:</strong> Aumenta contraste → colores más vivos</li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Demo:</strong> Mover trackbar de Contraste (0.1 - 3.0)
+        </div>
+    </div>
+
+    <!-- Slide 4: Brillo -->
+    <div class="slide">
+        <h2>💡 Parámetro: BRILLO</h2>
+        <div class="parameter-box">
+            <h3>¿Cómo funciona?</h3>
+            <p>Suma/resta un valor constante a todos los píxeles</p>
+            <div class="formula">
+                Píxel_salida = Píxel_entrada + valor_brillo
+            </div>
+        </div>
+        
+        <ul>
+            <li><strong>Valor negativo:</strong> Oscurece la imagen uniformemente</li>
+            <li><strong>Valor = 0:</strong> Sin cambios → imagen original</li>
+            <li><strong>Valor positivo:</strong> Aclara la imagen uniformemente</li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Demo:</strong> Mover trackbar de Brillo (-100 a +100)
+        </div>
+    </div>
+
+    <!-- Slide 5: Gamma -->
+    <div class="slide">
+        <h2>⚡ Parámetro: GAMMA</h2>
+        <div class="parameter-box">
+            <h3>¿Cómo funciona?</h3>
+            <p>Corrección no lineal usando exponenciación</p>
+            <div class="formula">
+                Píxel_salida = (Píxel_entrada/255)^(1/gamma) × 255
+            </div>
+        </div>
+        
+        <ul>
+            <li><strong>Gamma < 1.0:</strong> Aclara tonos medios (más que extremos)</li>
+            <li><strong>Gamma = 1.0:</strong> Sin corrección → imagen original</li>
+            <li><strong>Gamma > 1.0:</strong> Oscurece tonos medios</li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Demo:</strong> Mover trackbar de Gamma (0.1 - 3.0)
+        </div>
+    </div>
+
+    <!-- Slide 6: Modo Luminancia -->
+    <div class="slide">
+        <h2>🎨 Modo Solo Luminancia (HSV)</h2>
+        <div class="parameter-box">
+            <h3>Implementación real en código:</h3>
+            <p>Procesa solo el canal V (Value) del espacio HSV, preservando H y S</p>
+        </div>
+        
+        <ul>
+            <li><strong>Paso 1:</strong> BGR → HSV usando <code>fsiv_convert_bgr_to_hsv()</code></li>
+            <li><strong>Paso 2:</strong> <code>cv::split()</code> separa los canales H, S, V</li>
+            <li><strong>Paso 3:</strong> Procesar solo canal V (índice [2])</li>
+            <li><strong>Paso 4:</strong> <code>cv::merge()</code> recombina los canales</li>
+            <li><strong>Paso 5:</strong> HSV → BGR usando <code>fsiv_convert_hsv_to_bgr()</code></li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Nota:</strong> Ahora los tests pasan correctamente, pero no se aprecia con el ojo humano
+        </div>
+    </div>
+
+    <!-- Slide 7: ¿Por qué no se ve el efecto visual? -->
+    <div class="slide">
+        <h2>🤔 ¿Por qué no se ve el efecto visual en modo HSV?</h2>
+        <div class="parameter-box">
+            <h3>Explicación técnica:</h3>
+            <p>El procesamiento en HSV es matemáticamente correcto pero visualmente más sutil</p>
+        </div>
+        
+        <ul>
+            <li><strong>En RGB:</strong> Se procesan los 3 canales → efecto muy visible</li>
+            <li><strong>En HSV:</strong> Solo se procesa el canal V → efecto más sutil</li>
+            <li><strong>Matiz (H) y Saturación (S)</strong> permanecen inalterados</li>
+            <li><strong>El cambio solo afecta</strong> al "brillo/intensidad" de cada pixel</li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Resultado:</strong> Tests ✅ correctos, pero cambios visuales menos evidentes
+        </div>
+        
+        <div style="background: rgba(52, 152, 219, 0.3); padding: 15px; border-radius: 10px; margin-top: 20px;">
+            💡 <strong>Tip:</strong> Para ver mejor el efecto, usar valores extremos (contraste=3.0, gamma=0.1)
+        </div>
+    </div>
+
+    <!-- Slide 8: Implementación -->
+    <div class="slide">
+        <h2>⚙️ Mi Implementación</h2>
+        <div class="parameter-box">
+            <h3>Funcionalidades completadas:</h3>
+            <ul>
+                <li>✅ Función <code>fsiv_cbg_process</code> totalmente implementada</li>
+                <li>✅ Modo interactivo con trackbars en tiempo real</li>
+                <li>✅ Procesamiento solo de luminancia (-l) con HSV</li>
+                <li>✅ Manejo de argumentos de línea de comandos</li>
+                <li>✅ Interfaz gráfica intuitiva</li>
+                <li>✅ <strong>Todos los tests pasan correctamente</strong></li>
+            </ul>
+        </div>
+        
+        <div style="background: rgba(46, 204, 113, 0.3); padding: 20px; border-radius: 10px; margin-top: 30px;">
+            <strong>Implementación HSV:</strong> Los tests pasan pero el efecto visual del modo luminancia 
+            puede ser más sutil que el procesamiento RGB directo.
+        </div>
+    </div>
+
+    <!-- Slide 8: Referencias -->
+    <div class="slide">
+        <h2>📚 Referencias Técnicas y Académicas</h2>
+        <div class="parameter-box">
+            <h3>Literatura Académica</h3>
+            <ul style="font-size: 1.1em;">
+                <li><strong>Gonzalez, R.C. & Woods, R.E.</strong> - "Digital Image Processing" (4th Ed.)<br>
+                    <em>Capítulo 3: Intensity Transformations and Spatial Filtering</em></li>
+                <li><strong>Poynton, Charles</strong> - "Digital Video and HD: Algorithms and Interfaces"<br>
+                    <em>Gamma correction and color spaces</em></li>
+            </ul>
+        </div>
+        
+        <div class="parameter-box">
+            <h3>Estándares Técnicos</h3>
+            <ul style="font-size: 1.1em;">
+                <li><strong>CIE Standards</strong> - Commission Internationale de l'Éclairage</li>
+                <li><strong>sRGB Specification</strong> - IEC 61966-2-1</li>
+                <li><strong>Adobe RGB Documentation</strong> - Color space standards</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-box">
+            <h3>Documentación OpenCV</h3>
+            <ul style="font-size: 1.1em;">
+                <li><code>cv::Mat::convertTo()</code> - Para transformaciones lineales (contraste/brillo)</li>
+                <li><code>cv::pow()</code> - Para corrección gamma</li>
+                <li><code>cv::split()</code> y <code>cv::merge()</code> - Separar/combinar canales</li>
+                <li><code>fsiv_convert_bgr_to_hsv()</code> - Conversión BGR → HSV</li>
+                <li><code>fsiv_convert_hsv_to_bgr()</code> - Conversión HSV → BGR</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 9: Demostración -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 80px;">
+            <div class="demo-note" style="font-size: 1.5em;">
+                <strong>Comando a ejecutar:</strong><br>
+                <code>./build/cbg_process -i data/ciclista_original.jpg output.jpg</code>
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="color: #f1c40f;">Secuencia de demostración:</h3>
+                <ol style="font-size: 1.3em; text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>Ejecutar programa en modo interactivo</li>
+                    <li>Demostrar efecto del Contraste</li>
+                    <li>Demostrar efecto del Brillo</li>
+                    <li>Demostrar efecto del Gamma</li>
+                    <li>Comparar con modo solo luminancia</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+    </script>
+</body>
+</html>

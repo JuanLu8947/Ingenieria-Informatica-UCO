@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realidad Aumentada - Tablero de Ajedrez</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #ff6b35;
+        }
+        
+        .tech-box h3 {
+            color: #ff6b35;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .step-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #ecf0f1;
+        }
+        
+        .step-box h4 {
+            color: #ecf0f1;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .function-demo {
+            background: rgba(0, 212, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #00d4ff;
+        }
+        
+        .function-demo h3 {
+            color: #00d4ff;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(0, 212, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .demo-note {
+            background: rgba(255, 107, 129, 0.3);
+            border: 2px solid #ff6b81;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .axis-colors {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .axis-box {
+            flex: 1;
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .axis-z {
+            background: rgba(255, 0, 0, 0.3);
+            border: 2px solid #ff0000;
+            color: #fb8f8f;
+        }
+        
+        .axis-y {
+            background: rgba(0, 255, 0, 0.3);
+            border: 2px solid #00ff00;
+            color: #66ff66;
+        }
+        
+        .axis-x {
+            background: rgba(0, 0, 255, 0.3);
+            border: 2px solid #0000ff;
+            color: #66bfff;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+        
+        .implementation-status {
+            background: rgba(46, 204, 113, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #2ecc71;
+            margin: 20px 0;
+        }
+        
+        .implementation-status h4 {
+            color: #a9facb;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .pipeline-box {
+            background: rgba(142, 68, 173, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #8e44ad;
+            margin: 15px 0;
+        }
+        
+        .pipeline-box h4 {
+            color: #d77aff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .math-formula {
+            background: rgba(52, 73, 94, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>🥽 Realidad Aumentada</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Detección y Tracking de Tableros de Ajedrez</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 4 - Ejercicio 2</p>
+            
+            <div style="background: rgba(255, 255, 255, 0.15); padding: 30px; border-radius: 15px; margin-top: 40px;">
+                <h3 style="color: #00d4ff; margin-bottom: 20px;">📋 Funcionalidades Implementadas</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">
+                    <div>✅ Detección rápida de esquinas</div>
+                    <div>✅ Estimación de pose 3D</div>
+                    <div>✅ Dibujo de ejes coordenados</div>
+                    <div>✅ Modelos 3D wireframe</div>
+                    <div>✅ Proyección de imágenes</div>
+                    <div>✅ Carga de calibración</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 30px; align-items: center; margin-top: 30px;">
+                <div style="flex: 1;">
+                    <div class="demo-note" style="margin: 0; font-size: 1.3em;">
+                        <strong>Tablero:</strong> 5×6 cuadrados (4×5 esquinas internas)<br>
+                        <strong>Imagen de prueba:</strong> <code>data/logitech_000_009.png</code><br>
+                        <strong>Calibración:</strong> <code>data/logitech.xml</code>
+                    </div>
+                </div>
+                <div style="flex: 1; text-align: center;">
+                    <img src="data/logitech_000_009.png" 
+                         alt="Tablero de ajedrez de prueba" 
+                         style="max-width: 100%; max-height: 300px; border-radius: 10px; 
+                                box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 3px solid #00d4ff;">
+                    <p style="font-size: 1.1em; margin-top: 10px; color: #00d4ff;">
+                        <strong>Imagen de entrada del sistema</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es Realidad Aumentada? -->
+    <div class="slide">
+        <h2>🌟 ¿Qué es Realidad Aumentada?</h2>
+        <div class="tech-box">
+            <h3>Definición</h3>
+            <p style="font-size: 1.3em;">Técnica que superpone objetos virtuales sobre imágenes del mundo real 
+            de forma geométricamente correcta y convincente.</p>
+        </div>
+        
+        <div class="pipeline-box">
+            <h4>1️⃣ Calibración de Cámara</h4>
+            <p>Parámetros intrínsecos (matriz K) y coeficientes de distorsión que relacionan puntos 3D con píxeles 2D.</p>
+        </div>
+        
+        <div class="pipeline-box">
+            <h4>2️⃣ Detección del Patrón</h4>
+            <p>Encontrar objeto de referencia conocido (tablero de ajedrez) para establecer sistema de coordenadas 3D.</p>
+        </div>
+        
+        <div class="pipeline-box">
+            <h4>3️⃣ Estimación de Pose</h4>
+            <p>Calcular posición y orientación de la cámara respecto al tablero usando correspondencias 2D-3D.</p>
+        </div>
+        
+        <div class="pipeline-box">
+            <h4>4️⃣ Proyección de Objetos</h4>
+            <p>Dibujar elementos virtuales proyectados correctamente en la escena.</p>
+        </div>
+    </div>
+
+    <!-- Slide 3: Detección de Esquinas -->
+    <div class="slide">
+        <h2>🔍 Detección Rápida de Esquinas</h2>
+        <div class="function-demo">
+            <h3>fsiv_fast_find_chessboard_corners()</h3>
+            <p style="font-size: 1.3em;">Detecta las esquinas internas del tablero de ajedrez optimizado para velocidad</p>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Implementación</h3>
+            <ul>
+                <li><strong>Bandera:</strong> <code>cv::CALIB_CB_FAST_CHECK</code></li>
+                <li><strong>Entrada:</strong> Imagen en color (CV_8UC3)</li>
+                <li><strong>Salida:</strong> Vector de puntos 2D (esquinas detectadas)</li>
+                <li><strong>Optimización:</strong> Sin refinamiento de esquinas</li>
+            </ul>
+        </div>
+        
+        <div class="math-formula">
+            Tablero 4×5 → 20 esquinas internas detectadas
+        </div>
+        
+        <div style="background: rgba(231, 76, 60, 0.3); padding: 20px; border-radius: 10px; margin-top: 30px;">
+            <strong>⚡ Ventaja:</strong> CALIB_CB_FAST_CHECK hace verificación rápida sin detección completa,
+            ideal para aplicaciones en tiempo real.
+        </div>
+    </div>
+
+    <!-- Slide 4: Estimación de Pose -->
+    <div class="slide">
+        <h2>📐 Estimación de Pose 3D</h2>
+        <div class="function-demo">
+            <h3>fsiv_compute_camera_pose()</h3>
+            <p style="font-size: 1.3em;">Calcula la posición y orientación de la cámara respecto al tablero</p>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Algoritmo: cv::solvePnP</h3>
+            <ul>
+                <li><strong>Entrada:</strong> Puntos 3D del tablero + Puntos 2D detectados</li>
+                <li><strong>Parámetros:</strong> Matriz de cámara + Coeficientes de distorsión</li>
+                <li><strong>Salida:</strong> rvec (rotación 3×1) + tvec (traslación 3×1)</li>
+            </ul>
+        </div>
+        
+        <div style="display: flex; gap: 20px; margin: 30px 0;">
+            <div style="flex: 1; background: rgba(0, 212, 255, 0.2); padding: 20px; border-radius: 10px;">
+                <h4 style="color: #00d4ff;">🔄 rvec (Rotación)</h4>
+                <p>Vector 3D que describe la orientación de la cámara en el espacio</p>
+            </div>
+            <div style="flex: 1; background: rgba(255, 193, 7, 0.2); padding: 20px; border-radius: 10px;">
+                <h4 style="color: #ffc107;">📍 tvec (Traslación)</h4>
+                <p>Vector 3D que describe la posición de la cámara relativa al tablero</p>
+            </div>
+        </div>
+        
+        <div class="demo-note">
+            <strong>PnP:</strong> Perspective-n-Point problem - determina pose de cámara desde correspondencias 2D-3D
+        </div>
+    </div>
+
+    <!-- Slide 5: Dibujo de Ejes 3D -->
+    <div class="slide">
+        <h2>🎨 Dibujo de Ejes Coordenados 3D</h2>
+        <div class="function-demo">
+            <h3>fsiv_draw_axes()</h3>
+            <p style="font-size: 1.3em;">Visualiza el sistema de coordenadas 3D proyectado en la imagen</p>
+        </div>
+        
+        <div class="axis-colors">
+            <div class="axis-box axis-x">
+                EJE X<br>
+                🔵 AZUL<br>
+                Derecha →
+            </div>
+            <div class="axis-box axis-y">
+                EJE Y<br>
+                🟢 VERDE<br>
+                Abajo ↓
+            </div>
+            <div class="axis-box axis-z">
+                EJE Z<br>
+                🔴 ROJO<br>
+                Arriba ↑
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <h4>Proceso de renderizado:</h4>
+            <ol style="font-size: 1.2em;">
+                <li>Definir 4 puntos 3D: origen (0,0,0) y extremos de ejes</li>
+                <li>Proyectar puntos 3D → 2D con <code>cv::projectPoints</code></li>
+                <li>Dibujar líneas desde origen a cada extremo con <code>cv::line</code></li>
+            </ol>
+        </div>
+        
+        <div style="background: rgba(46, 204, 113, 0.3); padding: 20px; border-radius: 10px;">
+            <strong>✨ Resultado:</strong> Los ejes mantienen perspectiva correcta y se alinean perfectamente 
+            con la geometría del tablero.
+        </div>
+        
+        <div class="demo-note">
+            <strong>Demo:</strong> Observar cómo los ejes se alinean con la geometría del tablero
+            <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                <code style="font-size: 1.0em;">./build/aug_real --rows=4 --cols=5 --size=0.03 ./data/logitech.xml ./data/logitech_000_009.png</code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Modelo 3D Wireframe -->
+    <div class="slide">
+        <h2>🧊 Modelo 3D Wireframe</h2>
+        <div class="function-demo">
+            <h3>fsiv_draw_3d_model()</h3>
+            <p style="font-size: 1.3em;">Dibuja una pirámide 3D wireframe flotando sobre el tablero</p>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Geometría de la Pirámide</h3>
+            <ul>
+                <li><strong>5 vértices:</strong> 4 en base cuadrada + 1 vértice superior</li>
+                <li><strong>8 aristas:</strong> Base cuadrada + 4 aristas hacia el vértice</li>
+                <li><strong>Proyección:</strong> <code>cv::projectPoints</code> para cada vértice</li>
+                <li><strong>Renderizado:</strong> <code>cv::polylines</code> para wireframe</li>
+            </ul>
+        </div>
+        
+        <div style="background: rgba(255, 193, 7, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <h4 style="color: #ffc107;">🎬 Animación:</h4>
+            <p style="font-size: 1.2em;">
+                La pirámide se desplaza alrededor del tablero con movimiento circular suave
+                e interpolación fluida que evita saltos y teletransporte.
+            </p>
+            <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                <code style="font-size: 1.0em;">./build/aug_real --draw_model --rows=4 --cols=5 --size=20 data/logitech.xml data/tablero_000_000.avi</code>
+            </div>
+        </div>
+        
+        <div class="math-formula">
+            Color: Amarillo (RGB: 0, 255, 255) - Contraste óptimo con el tablero
+        </div>
+    </div>
+
+    <!-- Slide 7: Proyección de Imágenes -->
+    <div class="slide">
+        <h2>🖼️ Proyección de Imágenes</h2>
+        <div class="function-demo">
+            <h3>fsiv_project_image()</h3>
+            <p style="font-size: 1.3em;">Realidad aumentada completa proyectando imágenes sobre el tablero</p>
+        </div>
+        
+        <div class="step-box">
+            <h4>Proceso de transformación perspectiva:</h4>
+            <ol style="font-size: 1.2em;">
+                <li><strong>Extraer esquinas:</strong> Superior-izq, Superior-der, Inferior-der, Inferior-izq</li>
+                <li><strong>Mapear esquinas:</strong> Tablero → Imagen modelo</li>
+                <li><strong>Calcular matriz:</strong> <code>cv::getPerspectiveTransform</code></li>
+                <li><strong>Aplicar transformación:</strong> <code>cv::warpPerspective</code></li>
+                <li><strong>Combinar:</strong> Resultado con escena original</li>
+            </ol>
+        </div>
+        
+        <div style="background: rgba(142, 68, 173, 0.3); padding: 20px; border-radius: 10px;">
+            <strong>🎯 Parámetros:</strong><br>
+            • <strong>Interpolación:</strong> INTER_LINEAR (suavizado)<br>
+            • <strong>Borde:</strong> BORDER_TRANSPARENT (mantiene fondo)
+        </div>
+        
+        <div class="demo-note">
+            <strong>Resultado:</strong> Imagen "pegada" al tablero respetando perspectiva y geometría 3D
+        </div>
+    </div>
+
+    <!-- Slide 8: Efectos Visuales y Parámetros -->
+    <div class="slide">
+        <h2>📈 Efectos al Variar Parámetros</h2>
+        
+        <div class="function-demo">
+            <h3>Tamaño del Tablero (--rows y --cols)</h3>
+            <ul>
+                <li><strong>5×6 cuadrados (4×5 esquinas):</strong> Detección estable con 20 puntos</li>
+                <li><strong>Más cuadrados:</strong> Mayor precisión pero requiere tablero más grande</li>
+                <li><strong>Menos cuadrados:</strong> Detección más rápida pero menos robusta</li>
+                <li><strong>Relación:</strong> board_size = (cols-1, rows-1) para esquinas internas</li>
+            </ul>
+        </div>
+        
+        <div class="function-demo">
+            <h3>Tamaño de Cuadrado (--size)</h3>
+            <ul>
+                <li><strong>--size=0.3:</strong> Coordenadas 3D en unidades unitarias</li>
+                <li><strong>Valores reales:</strong> Usar medidas físicas del tablero (cm, mm)</li>
+                <li><strong>Escalado:</strong> Afecta el tamaño de ejes y modelos 3D</li>
+                <li><strong>Consistencia:</strong> Debe coincidir con el tablero de calibración</li>
+            </ul>
+        </div>
+        
+        <div class="function-demo">
+            <h3>Longitud de Ejes (size)</h3>
+            <ul>
+                <li><strong>Size pequeño:</strong> Ejes cortos, menos visibles</li>
+                <li><strong>Size grande:</strong> Ejes largos, más prominentes</li>
+                <li><strong>Proporción ideal:</strong> 1-2 veces el tamaño del cuadrado</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Demo:</strong> Mostrar diferentes tamaños de ejes y modelos 3D
+        </div>
+    </div>
+
+    <!-- Slide 9: Mi Implementación Completa -->
+    <div class="slide">
+        <h2>🚀 Mi Implementación Completa</h2>
+        
+        <div class="implementation-status">
+            <h4>✅ Estado: COMPLETADO</h4>
+            <p style="font-size: 1.2em;">Todas las funciones implementadas y probadas satisfactoriamente</p>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Funciones Core</h3>
+            <ul style="font-size: 1.1em;">
+                <li>✅ <code>fsiv_generate_3d_calibration_points</code></li>
+                <li>✅ <code>fsiv_fast_find_chessboard_corners</code></li>
+                <li>✅ <code>fsiv_compute_camera_pose</code></li>
+                <li>✅ <code>fsiv_load_calibration_parameters</code></li>
+            </ul>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Funciones de Renderizado</h3>
+            <ul style="font-size: 1.1em;">
+                <li>✅ <code>fsiv_draw_axes</code></li>
+                <li>✅ <code>fsiv_draw_3d_model</code></li>
+                <li>✅ <code>fsiv_project_image</code></li>
+            </ul>
+        </div>
+        
+        <div class="tech-box">
+            <h3>🔧 Características técnicas:</h3>
+            <ul>
+                <li><strong>Optimización:</strong> CALIB_CB_FAST_CHECK para velocidad</li>
+                <li><strong>Precisión:</strong> solvePnP para estimación robusta de pose</li>
+                <li><strong>Flexibilidad:</strong> Soporte para imágenes y vídeo</li>
+                <li><strong>Calibración:</strong> Carga automática desde XML</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note" style="font-size: 1.4em; background: rgba(46, 204, 113, 0.3); border-color: #2ecc71;">
+            <strong>🎯 Tests:</strong> Todas las pruebas unitarias pasan correctamente<br>
+            <strong>📊 Rendimiento:</strong> Optimizado para tiempo real
+        </div>
+    </div>
+
+    <!-- Slide 10: Demostración en Vivo -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <h3 style="color: #00d4ff; margin-bottom: 30px;">Vamos a ver el programa en acción</h3>
+            
+            <div class="demo-note" style="font-size: 1.5em; margin: 30px 0;">
+                <strong>Comando:</strong><br>
+                <code>./build/aug_real --draw_model --rows=4 --cols=5 --size=0.3 data/logitech.xml data/logitech_000_009.png</code>
+            </div>
+            
+            <div style="background: rgba(142, 68, 173, 0.3); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h4 style="color: #d77aff; margin-bottom: 15px;">📋 Parámetros del comando:</h4>
+                <ul style="font-size: 1.1em; text-align: left;">
+                    <li><strong>--rows=4 --cols=5:</strong> Tablero 4×5 cuadrados (3×4 esquinas internas)</li>
+                    <li><strong>--size=0.3:</strong> Tamaño del cuadrado optimizado para visualización</li>
+                    <li><strong>--draw_model:</strong> Activa el modelo 3D wireframe (pirámide)</li>
+                    <li><strong>data/logitech.xml:</strong> Parámetros de calibración de cámara</li>
+                    <li><strong>data/logitech_000_009.png:</strong> Imagen de entrada</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.15); padding: 30px; border-radius: 15px; margin: 30px 0;">
+                <h4 style="color: #f39c12; margin-bottom: 20px;">🎯 Qué observaremos:</h4>
+                <ul style="font-size: 1.3em; text-align: left;">
+                    <li>Detección automática de 12 esquinas del tablero</li>
+                    <li>Pirámide 3D wireframe estática</li>
+                    <li>Proyección perspectiva manteniendo realismo</li>
+                </ul>
+            </div>
+            
+            <div style="font-size: 1.8em; color: #2ecc71; margin-top: 40px;">
+                <strong>¡Realidad Aumentada en tiempo real!</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+    </script>
+</body>
+</html>

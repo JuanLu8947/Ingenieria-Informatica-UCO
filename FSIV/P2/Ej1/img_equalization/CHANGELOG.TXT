@@ -1,0 +1,29 @@
+* 1.0
+- primera versión.
+* 1.1
+- Reescritos los test para generar un fichero con los datos usados para facilitar
+la depuración de errores.
+* 1.2
+- Corregidos errores en los test.
+* 1.3
+- Version actualizada para el curso 22-23.
+* 1.4
+- Mejorados asertos para accumulate.
+* 1.5
+- Corregido CMakeLists.txt para que no pida opencv 3.4
+* 1.6
+- Fixed bug in test_common_code due to some tests success when it would be
+  fault (wrong use of cv::norm).
+* 1.7
+- Remove not useful test for normalize zero histograms.
+* 1.8
+- Recoded to use the method CLAHE.
+- Adapted to course 24-25.
+* 1.9
+- Recoding function fsiv_compute_actual_clipping_histogram_value to match the algorithm shown in the assignment description.
+- Fixed tests of fsiv_compute_actual_clipping_histogram_value and fsiv_create_equalization_lookup_table functions to use histograms with integer values as it is expected.
+* 1.10
+- Added histogram's images to show the effects.* 1.10
+- Updated to use ctest.
+
+

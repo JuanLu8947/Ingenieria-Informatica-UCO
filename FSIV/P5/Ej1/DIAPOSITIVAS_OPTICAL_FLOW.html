@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo Óptico y Desenfoque de Fondo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #4a90e2 50%, #7b68ee 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #4a90e2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #4a90e2;
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .tech-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        .algorithm-box {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #2ecc71;
+        }
+        
+        .algorithm-box h3 {
+            color: #f39c12;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .parameter-demo {
+            background: rgba(241, 156, 18, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #f39c12;
+        }
+        
+        .parameter-demo h3 {
+            color: #f39c12;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(241, 196, 15, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .demo-note {
+            background: rgba(230, 126, 34, 0.3);
+            border: 2px solid #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .comparison-box h4 {
+            color: #f39c12;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #f39c12;
+        }
+        
+        .step-box {
+            background: rgba(155, 89, 182, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #9b59b6;
+        }
+        
+        .step-box h4 {
+            color: #9b59b6;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .window-description {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .window-box {
+            flex: 1;
+            background: rgba(231, 76, 60, 0.2);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid #e74c3c;
+            text-align: center;
+        }
+        
+        .window-box h4 {
+            color: #e74c3c;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>FLUJO ÓPTICO</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Desenfoque de Fondo en Tiempo Real</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 5 - Ejercicio 1</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <h3 style="color: #4a90e2;">🎥 Técnica</h3>
+                    <p>Algoritmo de Farneback<br>Detección de movimiento</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: #e74c3c;">⚡ Resultado</h3>
+                    <p>Desenfoque dinámico<br>del fondo</p>
+                </div>
+            </div>
+            
+            <div class="demo-note" style="margin-top: 30px;">
+                <strong>Objetivo:</strong> Mantener nítidos los objetos en movimiento mientras se desenfoca el fondo estático
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es el Flujo Óptico? -->
+    <div class="slide">
+        <h2>🌊 ¿Qué es el Flujo Óptico?</h2>
+        <div class="tech-box">
+            <h3>Definición</h3>
+            <p style="font-size: 1.4em;">Es un campo vectorial que describe el movimiento aparente 
+            de píxeles entre frames consecutivos de un vídeo.</p>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Ecuación de Flujo Óptico:</strong><br>
+            I(x,y,t) = I(x+dx, y+dy, t+dt)<br><br>
+            <em>Donde (dx,dy) es el vector de movimiento</em>
+        </div>
+        
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Flujo Escaso</h4>
+                <p>Calcula vectores solo en<br>puntos característicos<br>(esquinas, bordes)</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Flujo Denso</h4>
+                <p>Calcula vectores para<br>TODOS los píxeles<br>de la imagen</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Algoritmo de Farneback -->
+    <div class="slide">
+        <h2>🔧 Algoritmo de Farneback</h2>
+        <div class="tech-box">
+            <h3>¿Por qué Farneback?</h3>
+            <ul style="font-size: 1.3em;">
+                <li>Cálculo de flujo óptico <strong>denso</strong></li>
+                <li>Basado en aproximación polinómica local</li>
+                <li>Robusto ante ruido y cambios de iluminación</li>
+                <li>Implementación eficiente en OpenCV</li>
+            </ul>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Mi Implementación</h3>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace;">
+<pre>
+// Crear algoritmo una sola vez (estático)
+static cv::Ptr&lt;cv::FarnebackOpticalFlow&gt; alg;
+if (alg.empty()) {
+    alg = cv::FarnebackOpticalFlow::create();
+}
+
+// Configurar flag de estimación inicial
+if (!flow.empty()) {
+    alg-&gt;setFlags(OPTFLOW_USE_INITIAL_FLOW);
+}
+
+// Calcular flujo óptico
+alg-&gt;calc(prev, next, flow);
+</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Proceso Completo -->
+    <div class="slide">
+        <h2>⚙️ Pipeline Completo</h2>
+        
+        <div class="step-box">
+            <h4>1. Cálculo del Flujo Óptico</h4>
+            <p>Usar algoritmo Farneback entre frame anterior y actual</p>
+        </div>
+        
+        <div class="step-box">
+            <h4>2. Magnitud del Flujo</h4>
+            <p>Calcular <code>sqrt(vx² + vy²)</code> para cada píxel</p>
+        </div>
+        
+        <div class="step-box">
+            <h4>3. Umbralización</h4>
+            <p>Crear máscara binaria: píxeles con magnitud ≥ threshold</p>
+        </div>
+        
+        <div class="step-box">
+            <h4>4. Post-procesado</h4>
+            <p>Dilatación morfológica + memoria temporal</p>
+        </div>
+        
+        <div class="step-box">
+            <h4>5. Desenfoque Selectivo</h4>
+            <p>Aplicar blur solo al fondo usando la máscara</p>
+        </div>
+    </div>
+
+    <!-- Slide 5: Parámetro Threshold -->
+    <div class="slide">
+        <h2>🎯 Parámetro: THRESHOLD (th)</h2>
+        <div class="parameter-demo">
+            <h3>Control de Sensibilidad</h3>
+            <p style="font-size: 1.3em;">Determina qué magnitud de flujo óptico 
+            se considera como "movimiento significativo"</p>
+        </div>
+        
+        <ul>
+            <li><strong>th bajo (0.5-1.0):</strong> Detecta movimientos sutiles → Más píxeles como foreground</li>
+            <li><strong>th medio (2.0-3.0):</strong> Equilibrio entre sensibilidad y estabilidad</li>
+            <li><strong>th alto (5.0-10.0):</strong> Solo movimientos muy evidentes → Menos ruido</li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Demo:</strong> Mover trackbar de Threshold y observar cambios en la máscara
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Implementación</h3>
+            <code>cv::threshold(magnitud, mask, th, 255, cv::THRESH_BINARY);</code>
+        </div>
+    </div>
+
+    <!-- Slide 6: Parámetro Alpha -->
+    <div class="slide">
+        <h2>🧠 Parámetro: ALPHA (Memoria)</h2>
+        <div class="parameter-demo">
+            <h3>Estabilización Temporal</h3>
+            <p style="font-size: 1.3em;">Controla cuánta "memoria" tiene el sistema 
+            de las máscaras anteriores</p>
+        </div>
+        
+        <div class="formula-box">
+            nueva_mask = α × mask_anterior + (1-α) × mask_actual
+        </div>
+        
+        <ul>
+            <li><strong>α = 0.0:</strong> Sin memoria → máscara completamente nueva cada frame</li>
+            <li><strong>α = 0.2-0.3:</strong> Memoria moderada → suaviza fluctuaciones</li>
+            <li><strong>α = 0.8-0.9:</strong> Mucha memoria → máscara muy estable pero lenta</li>
+        </ul>
+        
+        <div class="demo-note">
+            <strong>Efecto:</strong> Reduce parpadeo de la máscara y estabiliza la detección
+        </div>
+    </div>
+
+    <!-- Slide 7: Tipos de Desenfoque -->
+    <div class="slide">
+        <h2>🌫️ Tipos de Desenfoque</h2>
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Box Blur (tipo 0)</h4>
+                <p>Promedio simple en ventana cuadrada<br><br>
+                <strong>Ventajas:</strong> Muy rápido<br>
+                <strong>Efecto:</strong> Desenfoque uniforme</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Gaussian Blur (tipo 1)</h4>
+                <p>Ponderación gaussiana<br><br>
+                <strong>Ventajas:</strong> Más natural<br>
+                <strong>Efecto:</strong> Desenfoque suave</p>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Radio de Desenfoque</h3>
+            <p>Controla la intensidad del efecto:</p>
+            <ul style="font-size: 1.2em;">
+                <li><strong>Radio 1-3:</strong> Desenfoque sutil</li>
+                <li><strong>Radio 5-10:</strong> Desenfoque moderado</li>
+                <li><strong>Radio >15:</strong> Desenfoque muy intenso</li>
+            </ul>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Kernel Size = 2 × radio + 1</h3>
+        </div>
+    </div>
+
+    <!-- Slide 8: Interfaz Interactiva -->
+    <div class="slide">
+        <h2>🖥️ Interfaz del Programa</h2>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>Ventana Principal</h4>
+                <ul style="text-align: left; font-size: 1.1em;">
+                    <li>Vídeo con fondo desenfocado</li>
+                    <li>Resultado final en tiempo real</li>
+                </ul>
+            </div>
+            <div class="window-box">
+                <h4>Ventana Máscara</h4>
+                <ul style="text-align: left; font-size: 1.1em;">
+                    <li>Visualización de la máscara</li>
+                    <li>Blanco = Foreground</li>
+                    <li>Negro = Background</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Controles Interactivos</h3>
+            <ul style="font-size: 1.2em;">
+                <li><strong>Threshold:</strong> Sensibilidad de detección (0-100 → 0.0-10.0)</li>
+                <li><strong>Alpha:</strong> Memoria temporal (0-100 → 0.0-1.0)</li>
+                <li><strong>STE Radius:</strong> Radio de dilatación morfológica</li>
+                <li><strong>Blur Radius:</strong> Intensidad del desenfoque</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 9: Demostración -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <div style="background: rgba(74, 144, 226, 0.3); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                <h3 style="color: #4a90e2; font-size: 2.2em;">Ejemplos de Uso</h3>
+                <ul style="font-size: 1.4em; text-align: left;">
+                    <li>📹 <strong>Videoconferencias:</strong> Efecto "background blur"</li>
+                    <li>🎮 <strong>Realidad Aumentada:</strong> Separación objeto-fondo</li>
+                    <li>🎥 <strong>Producción audiovisual:</strong> Efectos cinematográficos</li>
+                    <li>🔬 <strong>Análisis de movimiento:</strong> Tracking de objetos</li>
+                </ul>
+            </div>
+            
+            <div class="demo-note" style="font-size: 1.4em; margin-top: 30px;">
+                <strong>¡Vamos a ver el programa en acción!</strong><br>
+                Probando diferentes parámetros en tiempo real
+            </div>
+            
+            <div style="background: rgba(46, 204, 113, 0.3); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <p style="font-size: 1.2em;">
+                    🎯 <strong>Tecnología clave:</strong> OpenCV + Algoritmo Farneback<br>
+                    ⚡ <strong>Rendimiento:</strong> Procesamiento en tiempo real
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+    </script>
+</body>
+</html>

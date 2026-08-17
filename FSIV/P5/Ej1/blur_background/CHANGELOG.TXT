@@ -1,0 +1,25 @@
+* 1.0
+- Start version.
+* 1.1
+- Fixed bug using cv::normalize to generate the mask.
+- Improved preconditions to fsiv_blur_background
+- Force default STEP2 with t=0.15 as default mode of main.
+* 2.0
+- Recoded to use common_code.cpp
+- Added tests.
+- Adapted to 23-24 course.
+* 2.1
+- Set c++11 in CMakeLists.txt
+- Fixed compiling bugs in ThinStation.
+* 2.2
+- Loop if the input is a video file.
+- Added gui controls to blur radius and blur type.
+- Fixed bug due to the mask could not be binary when alpha in (0,1)
+- Adapted to course 24-25.
+* 2.3
+- Set the frame size when the input video stream is from a camera.
+* 2.4
+- Fixed bug in test for fsiv_compute_of_foreground_mask with initial state.
+* 2.5
+- Added ctest support.
+- Improved gui.

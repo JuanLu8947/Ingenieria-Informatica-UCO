@@ -1,0 +1,33 @@
+* 1.0
+- Versión inicial.
+* 1.1
+- Creada función específica para gray-world.
+* 2.0
+- Creada función específica para rescalar un color de entrada a uno de salida.
+- Creado módulo common_code para agrupar las funciones que los alumnos deben
+  codificar con vista al examen práctico.
+- Creado programa test_common_code para comprobar las funciones.
+* 2.1
+- Actualizado CMakeLists.txt para compilar con c++11.
+* 2.2
+- Reescritos los test para que genere un fichero con los datos usados para
+facilitar la depuración.
+- Corregido error al seleccionar percentil.
+* 2.3
+- Corregido un test.
+* 2.4
+- Corregido uso de norm(my-your) a norm(my, your) test_common_code.
+* 2.5
+- Traducidas sugerencias a inglés en common_code.cpp
+* 2.6
+- Añadida importante sugerencia a fsiv_color_rescaling para usar cv:divide
+en vez de "/" para crear la constante de escalado.
+* 2.7
+- Factorizadas funciones para calcular el histograma y el percentil.
+- Actualizado al curso 24-25.
+* 2.8
+- Updated to use ctest.
+- Refactor fsiv_color_rescaling to apply to any type of image.
+- Change return type of fsiv_compute_histogram_percentile to int.
+- Now p parameter for fsiv_white_patch_color_balance is given as %1.
+- Improve gui of color_balance program.

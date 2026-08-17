@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance de Color - Gray World y White Patch</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3498db 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #e74c3c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .tech-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        .algorithm-box {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #2ecc71;
+        }
+        
+        .algorithm-box h3 {
+            color: #e7ab3c;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .step-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #ecf0f1;
+        }
+        
+        .step-box h4 {
+            color: #e7ab3c;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .parameter-demo {
+            background: rgba(241, 156, 18, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #f39c12;
+        }
+        
+        .parameter-demo h3 {
+            color: #f39c12;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(241, 196, 15, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .demo-note {
+            background: rgba(230, 126, 34, 0.3);
+            border: 2px solid #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .comparison-box h4 {
+            color: #e74c3c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #f39c12;
+        }
+        
+        .function-list {
+            background: rgba(52, 73, 94, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .function-item {
+            background: rgba(46, 204, 113, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .function-item code {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>Balance de Color</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Gray World & White Patch Methods</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 2 - Ejercicio 2</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                    <h3 style="color: #b6b6b6; margin-bottom: 10px;">🌍 Gray World</h3>
+                    <p>Asume que la media de la imagen debe ser gris neutro</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                    <h3 style="color: #ffffff; margin-bottom: 10px;">⚪ White Patch</h3>
+                    <p>Usa los píxeles más brillantes como referencia blanca</p>
+                </div>
+            </div>
+            
+            <div class="demo-note" style="margin-top: 30px;">
+                <strong>Técnicas fundamentales de corrección automática del balance de blancos</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es el Balance de Color? -->
+    <div class="slide">
+        <h2>🎨 ¿Qué es el Balance de Color?</h2>
+        <div class="tech-box">
+            <h3>Corrección del Balance de Blancos</h3>
+            <p style="font-size: 1.3em;">Proceso automático para corregir las dominantes de color causadas por diferentes tipos de iluminación, restaurando los colores naturales de la escena.</p>
+        </div>
+        
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Problema</h4>
+                <p>Imágenes con dominante de color (azulada, amarillenta) debido a la temperatura de color de la luz</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Solución</h4>
+                <p>Algoritmos que identifican automáticamente la referencia blanca y ajustan todos los colores</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Resultado</h4>
+                <p>Imágenes con colores naturales y balance correcto entre canales RGB</p>
+            </div>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Técnicas principales implementadas:</h3>
+            <ul>
+                <li><strong>Gray World</strong>: Método estadístico global</li>
+                <li><strong>White Patch</strong>: Método basado en píxeles más brillantes</li>
+                <li><strong>White Patch con Percentil</strong>: Versión robusta contra outliers</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Gray World Algorithm -->
+    <div class="slide">
+        <h2>🌍 Algoritmo Gray World</h2>
+        <div class="tech-box">
+            <h3>Principio Fundamental</h3>
+            <p style="font-size: 1.3em;">Bajo iluminación neutra, la media de todos los píxeles de una imagen debe ser gris (aprox. 128,128,128 en RGB).</p>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Implementación matemática:</strong><br><br>
+            1. color_promedio: m = mean(imagen_RGB)<br>
+            2. factor de escala: α = (128/Rm, 128/Gm, 128/Bm)<br>
+            3. imagen_corregida = imagen_original × factor_escala
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Mi implementación en fsiv_gray_world_color_balance:</h3>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace;">
+                <pre>cv::Scalar mean_ = cv::mean(in);
+out = fsiv_color_rescaling(in, mean_, cv::Scalar(128, 128, 128));</pre>
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <h4>Ventajas:</h4>
+            <ul>
+                <li>Muy simple y rápido</li>
+                <li>Funciona bien en escenas con variedad de colores</li>
+                <li>Robusto para iluminación uniforme</li>
+            </ul>
+        </div>
+        
+        <div class="step-box">
+            <h4>Limitaciones:</h4>
+            <ul>
+                <li>Falla si la escena tiene dominante de color real</li>
+                <li>No funciona bien en escenas monocromáticas</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 4: White Patch Algorithm -->
+    <div class="slide">
+        <h2>⚪ Algoritmo White Patch</h2>
+        <div class="tech-box">
+            <h3>Principio Fundamental</h3>
+            <p style="font-size: 1.3em;">Los píxeles más brillantes de la imagen corresponden a superficies blancas bajo la iluminación de la escena.</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Dos versiones implementadas:</h3>
+            <div class="step-box">
+                <h4>White Patch Clásico (p = 0.0):</h4>
+                <div class="formula-box" style="text-align: left;">
+                    1. luma = fsiv_convert_bgr_to_gray(imagen)<br>
+                    2. maxLoc = cv::minMaxLoc(luma) // posición del píxel más brillante<br>
+                    3. pixel_rgb = imagen.at&lt;cv::Vec3b&gt;(maxLoc)<br>
+                    4. max_rgb = cv::Scalar(pixel_rgb[0], pixel_rgb[1], pixel_rgb[2])<br>
+                    5. imagen_corregida = fsiv_color_rescaling(imagen, max_rgb, (255,255,255))
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h4>White Patch con Percentil (p > 0.0):</h4>
+                <div class="formula-box" style="text-align: left;">
+                    1. luma = fsiv_convert_bgr_to_gray(imagen)<br>
+                    2. hist = fsiv_compute_image_histogram(luma)<br>
+                    3. p_index = fsiv_compute_histogram_percentile(hist, 1.0-p)<br>
+                    4. mask = (luma >= p_index)<br>
+                    5. max_rgb = cv::mean(imagen, mask)<br>
+                    6. imagen_corregida = fsiv_color_rescaling(imagen, max_rgb, (255,255,255))
+                </div>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Parámetro p (Percentage):</h3>
+            <ul>
+                <li><strong>p = 0.0</strong>: Usa solo el píxel más brillante (clásico)</li>
+                <li><strong>p = 0.05</strong>: Usa el 5% de píxeles más brillantes (robusto)</li>
+                <li><strong>p = 0.25</strong>: Usa el 25% de píxeles más brillantes (como ejemplo del enunciado)</li>
+                <li><strong>p = 1.0</strong>: Equivale al método Gray World</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 5: Función de Reescalado -->
+    <div class="slide">
+        <h2>⚖️ Función de Reescalado de Color</h2>
+        <div class="tech-box">
+            <h3>fsiv_color_rescaling - Función Base</h3>
+            <p style="font-size: 1.3em;">Función fundamental que reescala los valores de una imagen para transformar un color objetivo de entrada en un color de salida deseado.</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Implementación matemática:</h3>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 1.1em;">
+<pre>
+cv::Scalar factor;
+cv::divide(to, from, factor);
+output = input.mul(factor);
+</pre>
+            </div>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Fórmula matemática:</strong><br><br>
+            factor = color_destino / color_origen<br>
+            imagen_salida = imagen_entrada × factor
+        </div>
+        
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Para Gray World</h4>
+                <p><strong>from</strong> = media de la imagen<br><strong>to</strong> = (128, 128, 128)</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Para White Patch</h4>
+                <p><strong>from</strong> = píxeles más brillantes<br><strong>to</strong> = (255, 255, 255)</p>
+            </div>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Ventaja clave:</strong> Una sola función sirve para ambos métodos de balance
+        </div>
+    </div>
+
+    <!-- Slide 6: Cálculo de Percentiles -->
+    <div class="slide">
+        <h2>📊 Cálculo de Percentiles de Histograma</h2>
+        <div class="tech-box">
+            <h3>fsiv_compute_histogram_percentile</h3>
+            <p style="font-size: 1.3em;">Encuentra el percentil especificado en un histograma, esencial para el White Patch robusto.</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Mi algoritmo de acumulación:</h3>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace;">
+<pre>
+double total_area = cv::sum(hist)[0];
+float umbral = p_value * total_area;
+
+float accumulated_sum = 0.0f;
+for (int i = 0; i &lt; hist.rows; i++) {
+    accumulated_sum += hist.at&lt;float&gt;(i);
+    if (accumulated_sum &gt;= umbral) {
+        return i;  // Percentil encontrado
+    }
+}
+</pre>
+            </div>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Objetivo:</strong> Encontrar el índice p tal que:<br>
+            suma(h[0] + h[1] + ... + h[p]) ≥ p_value × área_total
+        </div>
+        
+        <div class="step-box">
+            <h4>Ejemplo práctico:</h4>
+            <p>Para percentil 95% (p_value = 0.95) en imagen de 1000 píxeles:<br>
+            • Umbral = 0.95 × 1000 = 950 píxeles<br>
+            • El algoritmo acumula hasta alcanzar 950 píxeles<br>
+            • Devuelve el índice donde esto ocurre</p>
+        </div>
+    </div>
+
+    <!-- Slide 7: Funciones Auxiliares -->
+    <div class="slide">
+        <h2>🔧 Funciones Auxiliares Implementadas</h2>
+        
+        <div class="function-list">
+            <div class="function-item">
+                <code>fsiv_convert_bgr_to_gray</code>
+                <p>Convierte imagen BGR a escala de grises usando cv::cvtColor con COLOR_BGR2GRAY</p>
+            </div>
+            <div class="function-item">
+                <code>fsiv_compute_image_histogram</code>
+                <p>Calcula histograma de imagen en escala de grises con cv::calcHist (256 bins, rango [0,256))</p>
+            </div>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Flujo de procesamiento para White Patch:</h3>
+            <ol style="font-size: 1.2em;">
+                <li><strong>Conversión:</strong> BGR → escala de grises (luminancia)</li>
+                <li><strong>Análisis:</strong> Histograma o búsqueda de máximo</li>
+                <li><strong>Selección:</strong> Píxeles más brillantes según parámetro p</li>
+                <li><strong>Cálculo:</strong> Valor de referencia blanca</li>
+                <li><strong>Aplicación:</strong> Reescalado de toda la imagen</li>
+            </ol>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Robustez del algoritmo:</h3>
+            <p>La conversión a luminancia evita que dominantes de color afecten la selección de píxeles "blancos"</p>
+        </div>
+    </div>
+
+    <!-- Slide 8: Interfaz del Programa -->
+    <div class="slide">
+        <h2>🖥️ Interfaz Interactiva</h2>
+        
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Ventana INPUT</h4>
+                <p>Muestra la imagen original sin procesar</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Ventana OUTPUT</h4>
+                <p>Resultado del balance de color en tiempo real</p>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Trackbar de Control P:</h3>
+            <ul>
+                <li><strong>P = 0</strong>: White Patch clásico (solo píxel más brillante)</li>
+                <li><strong>P = 1-99</strong>: White Patch con ese % de píxeles más brillantes</li>
+                <li><strong>P = 100</strong>: Gray World (todos los píxeles)</li>
+            </ul>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Comandos de ejecución:</h3>
+            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: monospace;">
+                # Modo interactivo<br>
+                ./build/color_balance -i imagen.jpg salida.jpg<br><br>
+                # Modo batch con parámetro específico<br>
+                ./build/color_balance -p 5 imagen.jpg salida.jpg
+            </div>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Controles:</strong> ESC para salir, ENTER para guardar resultado
+        </div>
+    </div>
+
+    <!-- Slide 9: Comparación de Métodos -->
+    <div class="slide">
+        <h2>⚖️ Comparación de Métodos</h2>
+        
+        <div class="comparison-container">
+            <div class="comparison-box" style="border: 2px solid #3498db;">
+                <h4>Gray World (P=100)</h4>
+                <ul style="text-align: left; font-size: 1.1em;">
+                    <li>Muy rápido</li>
+                    <li>Funciona bien en escenas diversas</li>
+                    <li>Puede fallar en escenas monocromáticas</li>
+                    <li>Método estadístico global</li>
+                </ul>
+            </div>
+            <div class="comparison-box" style="border: 2px solid #e74c3c;">
+                <h4>White Patch Clásico (P=0)</h4>
+                <ul style="text-align: left; font-size: 1.1em;">
+                    <li>Muy sensible a outliers</li>
+                    <li>Funciona bien si hay blancos puros</li>
+                    <li>Puede fallar con ruido o especularidades</li>
+                    <li>Método basado en máximo local</li>
+                </ul>
+            </div>
+            <div class="comparison-box" style="border: 2px solid #2ecc71;">
+                <h4>White Patch Robusto (P=1-20)</h4>
+                <ul style="text-align: left; font-size: 1.1em;">
+                    <li>Robusto contra outliers</li>
+                    <li>Mejor en imágenes reales</li>
+                    <li>Balance entre precisión y robustez</li>
+                    <li>Método estadístico local</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Recomendaciones de uso:</h3>
+            <div class="step-box">
+                <h4>Imágenes de interiores con luz artificial:</h4>
+                <p>White Patch con P=5-10% (robusto contra luces puntuales)</p>
+            </div>
+            <div class="step-box">
+                <h4>Paisajes y escenas naturales:</h4>
+                <p>Gray World (P=100%) o White Patch con P=15-20%</p>
+            </div>
+            <div class="step-box">
+                <h4>Fotografías con objetos blancos claros:</h4>
+                <p>White Patch clásico (P=0%) si no hay ruido</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Demostración en Vivo -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <div class="tech-box">
+                <h3>Lo que veremos:</h3>
+                <ul style="font-size: 1.3em;">
+                    <li>✅ Carga de imagen con dominante de color</li>
+                    <li>✅ Efecto del parámetro P en tiempo real</li>
+                    <li>✅ Comparación Gray World vs White Patch</li>
+                    <li>✅ Selección del método óptimo para la imagen</li>
+                </ul>
+            </div>
+            
+            <div class="algorithm-box">
+                <h3>Funciones implementadas completamente:</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                    <div>✅ fsiv_color_rescaling</div>
+                    <div>✅ fsiv_convert_bgr_to_gray</div>
+                    <div>✅ fsiv_compute_image_histogram</div>
+                    <div>✅ fsiv_compute_histogram_percentile</div>
+                    <div>✅ fsiv_gray_world_color_balance</div>
+                    <div>✅ fsiv_white_patch_color_balance</div>
+                </div>
+            </div>
+            
+            <div class="demo-note" style="font-size: 1.4em;">
+                <strong>¡Todas las funciones funcionan correctamente!</strong><br>
+                Implementación completa del balance de color automático
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+    </script>
+</body>
+</html>

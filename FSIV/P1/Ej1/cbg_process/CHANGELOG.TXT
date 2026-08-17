@@ -1,0 +1,18 @@
+* 1.0
+- primera versión.
+* 1.1
+- Arreglado fallo en los test para imágenes en color.
+* 1.2
+- Mejorado programa de test para generar ficheros con información del error.
+* 1.3
+- Renombrado test_common_code a cbg_process_common_code para impedir conflicto cuando se generan los exámenes.
+* 1.4
+- Actualizado al curso 23-24.
+* 1.5
+- Renombradas las funciones del módulo test_common_code de la forma fsiv_xxxx
+- Actualizado enlace de README.md
+* 1.6
+- Recodificadas funciones fsiv para no usar como parametro la imagen de salida.
+- Actualizado al curso 24-25.
+* 1.7
+- Updated to use ctest.

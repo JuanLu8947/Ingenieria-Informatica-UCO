@@ -1,0 +1,19 @@
+* 1.0
+- Start release.
+* 1.1
+- Updated to course 23-24.
+* 1.2
+- Added fsiv_convert_bgr_to_hsv.
+- Improve docs.
+- Updated to course 24-25.
+* 1.3
+- Force read the image with flag cv::IMREAD_COLOR due some versions seems load
+  as gray scale by default.
+- Rename sliders names.
+- Remove warning by using a pointer in createTrackBar.
+- Refactor image processing logic and improve GUI responsiveness.
+- Fix frame rate issue when capturing from a camera.
+* 1.4
+- Updated to use ctest.
+- Now all the logic to get the chroma key mask is implemented in a function.
+- Fix histogram percentile calculation to prevent out-of-bounds access in loop condition.

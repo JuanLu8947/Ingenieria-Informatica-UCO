@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLAHE - Ecualización Adaptativa de Histograma</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 90vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f39c12);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #f39c12;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #e74c3c;
+        }
+        
+        .tech-box h3 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        .algorithm-box {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #2ecc71;
+        }
+        
+        .algorithm-box h3 {
+            color: #f39c12;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .step-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #ecf0f1;
+        }
+        
+        .step-box h4 {
+            color: #f39c12;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .parameter-demo {
+            background: rgba(241, 156, 18, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #f39c12;
+        }
+        
+        .parameter-demo h3 {
+            color: #f39c12;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+        
+        ul {
+            font-size: 1.4em;
+            line-height: 2;
+        }
+        
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .highlight {
+            background: rgba(241, 196, 15, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .demo-note {
+            background: rgba(230, 126, 34, 0.3);
+            border: 2px solid #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .comparison-box h4 {
+            color: #f39c12;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #f39c12;
+        }
+        
+        .function-list {
+            background: rgba(52, 73, 94, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .function-item {
+            background: rgba(46, 204, 113, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .function-item code {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .demo-image {
+            max-width: 300px;
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .demo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .window-description {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .window-box {
+            flex: 1;
+            background: rgba(231, 76, 60, 0.2);
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid #e74c3c;
+            text-align: center;
+        }
+        
+        .window-box h4 {
+            color: #e74c3c;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">11</span>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide active">
+        <h1>CLAHE</h1>
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="border: none; color: white;">Contrast Limited Adaptive Histogram Equalization</h2>
+            <p style="font-size: 1.8em; margin-top: 30px;">FSIV - Práctica 2 - Ejercicio 1</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+                <div>
+                    <img src="data/avion.png" alt="Avión Original" class="demo-image">
+                    <div style="text-align: center; margin-top: 10px; color: #f39c12;">
+                        <strong>Imagen original (avion.png)</strong>
+                    </div>
+                </div>
+                <div style="font-size: 3em; color: #f39c12;">→</div>
+                <div>
+                    <img src="data/avion_clahe_demo.png" alt="Avión con CLAHE" class="demo-image">
+                    <div style="text-align: center; margin-top: 10px; color: #f39c12;">
+                        <strong>Resultado con CLAHE</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-note" style="margin-top: 30px;">
+                <strong>Objetivo:</strong> Mejorar el contraste adaptándose localmente a cada región
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: ¿Qué es CLAHE? -->
+    <div class="slide">
+        <h2>🎯 ¿Qué es CLAHE?</h2>
+        <div class="tech-box">
+            <h3>Contrast Limited Adaptive Histogram Equalization</h3>
+            <p style="font-size: 1.3em;">Técnica avanzada de mejora de contraste que combina 
+            <strong>procesamiento local</strong> con <strong>limitación de contraste</strong> 
+            para evitar la amplificación excesiva del ruido.</p>
+        </div>
+        
+        <div class="comparison-container">
+            <div class="comparison-box">
+                <h4>Ecualización Global</h4>
+                <p>Una función de transformación para toda la imagen</p>
+                <p>✅ Simple</p>
+                <p>❌ Poco natural</p>
+            </div>
+            <div class="comparison-box">
+                <h4>Ecualización Local</h4>
+                <p>Función diferente para cada ventana</p>
+                <p>✅ Adaptativa</p>
+                <p>❌ Amplifica ruido</p>
+            </div>
+            <div class="comparison-box">
+                <h4>CLAHE</h4>
+                <p>Local + limitación de contraste</p>
+                <p>✅ Adaptativa</p>
+                <p>✅ Controla ruido</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Fundamento matemático -->
+    <div class="slide">
+        <h2>📊 Fundamento Matemático</h2>
+        <div class="tech-box">
+            <h3>Función de Transformación</h3>
+            <div class="formula-box">
+                O(x,y) = 255 × T[I(x,y)]
+            </div>
+            <p style="font-size: 1.2em;">Donde:<br>
+            <strong>I(x,y)</strong> = intensidad del píxel de entrada en posición (x,y)<br>
+            <strong>O(x,y)</strong> = intensidad del píxel de salida en posición (x,y)<br>
+            <strong>T</strong> = función de transformación obtenida del histograma normalizado y acumulado</p>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Proceso CLAHE:</h3>
+            <ol style="font-size: 1.2em;">
+                <li><strong>Dividir imagen</strong> en ventanas de tamaño (2r+1, 2r+1)</li>
+                <li><strong>Para cada ventana:</strong>
+                    <ul>
+                        <li>Calcular histograma local</li>
+                        <li>Aplicar limitación de contraste (si s ≥ 1)</li>
+                        <li>Normalizar (L1 = 1.0)</li>
+                        <li>Acumular histograma</li>
+                        <li>Crear tabla de transformación</li>
+                    </ul>
+                </li>
+                <li><strong>Transformar</strong> solo el píxel central de cada ventana</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Slide 4: Limitación de Contraste -->
+    <div class="slide">
+        <h2>🔒 Limitación de Contraste</h2>
+        <div class="tech-box">
+            <h3>¿Por qué es necesaria?</h3>
+            <p style="font-size: 1.3em;">En zonas homogéneas, la ecualización local puede amplificar 
+            demasiado el ruido al intentar crear contraste donde no lo hay.</p>
+        </div>
+        
+        <div class="formula-box">
+            <strong>Nivel de recorte deseado:</strong><br>
+            CL = s × área(histograma) / bins(histograma)<br><br>
+            <div style="font-size: 0.9em; text-align: left;">
+            Donde:<br>
+            <strong>CL</strong> = Clipping Level (nivel máximo permitido por bin)<br>
+            <strong>s</strong> = Slope Factor (parámetro de limitación de contraste)<br>
+            <strong>área(histograma)</strong> = número total de píxeles en la ventana<br>
+            <strong>bins(histograma)</strong> = número de contenedores del histograma (256 para 8 bits)
+            </div>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Problema y Solución:</h3>
+            <div class="step-box">
+                <h4>❌ Problema</h4>
+                <p>Si recortamos en CL y redistribuimos, el histograma final > CL</p>
+            </div>
+            <div class="step-box">
+                <h4>✅ Solución</h4>
+                <p>Buscar valor P tal que: <code>CL = P + R/bins(hist)</code><br>
+                donde R es el área residual</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Algoritmo de Búsqueda Binaria -->
+    <div class="slide">
+        <h2>🔍 Algoritmo de Búsqueda Binaria</h2>
+        <div class="algorithm-box">
+            <h3>Mi implementación en fsiv_compute_actual_clipping_histogram_value:</h3>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 1.1em;">
+<pre>
+CL = s * área(histograma) / 256
+top = CL
+bottom = 0.0
+
+while ((top - bottom) > 1.0):
+    middle = (top + bottom) / 2
+    R = 0.0
+    for i in range(256):
+        if histogram[i] > middle:
+            R += histogram[i] - middle
+    
+    if R > ((CL - middle) * 256):
+        top = middle
+    else:
+        bottom = middle
+
+return bottom  // valor P efectivo
+</pre>
+            </div>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Resultado:</strong> Encuentra el valor P óptimo para recortar el histograma
+        </div>
+    </div>
+
+    <!-- Slide 6: Parámetros de Control -->
+    <div class="slide">
+        <h2>🎛️ Parámetros de Control</h2>
+        <div class="parameter-demo">
+            <h3>S (Slope Factor) - Factor de Pendiente</h3>
+            <ul>
+                <li><strong>s < 1.0:</strong> Sin limitación → ecualización clásica</li>
+                <li><strong>s ∈ [3, 6]:</strong> Rango recomendado → buen balance</li>
+                <li><strong>s > 6:</strong> Limitación muy fuerte → imagen muy suave</li>
+            </ul>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>R (Radio) - Tamaño de Ventana</h3>
+            <ul>
+                <li><strong>r = 0:</strong> Procesado global → una sola función</li>
+                <li><strong>r = 1-2:</strong> Ventana pequeña → alta adaptabilidad</li>
+                <li><strong>r = 3-4:</strong> Ventana media → equilibrio óptimo</li>
+                <li><strong>r > 5:</strong> Ventana grande → suavizado local</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; font-size: 1.2em; color: #f39c12;">
+            <strong>Tamaño de ventana = (2^R + 1) × (2^R + 1) píxeles</strong>
+        </div>
+    </div>
+
+    <!-- Slide 7: Interfaz del Programa -->
+    <div class="slide">
+        <h2>🖥️ Interfaz Interactiva</h2>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>'INPUT'</h4>
+                <p>Imagen original (avion.png)</p>
+            </div>
+            <div class="window-box">
+                <h4>'OUTPUT'</h4>
+                <p>Resultado en tiempo real</p>
+            </div>
+        </div>
+        
+        <div class="window-description">
+            <div class="window-box">
+                <h4>'INPUT HISTOGRAM'</h4>
+                <p>Histograma original (azul)</p>
+            </div>
+            <div class="window-box">
+                <h4>'OUTPUT HISTOGRAM'</h4>
+                <p>Histograma procesado (verde)</p>
+            </div>
+        </div>
+        
+        <div class="tech-box">
+            <h3>Trackbars de Control:</h3>
+            <ul>
+                <li><strong>S (0-100):</strong> Factor de limitación de contraste ÷ 10</li>
+                <li><strong>R (0-5):</strong> Logaritmo del radio de ventana</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Comando:</strong> <code>./build/img_equalization -i data/avion.png output.png</code>
+        </div>
+    </div>
+
+    <!-- Slide 8: Mi Implementación Completa -->
+    <div class="slide">
+        <h2>⚙️ Mi Implementación Completa</h2>
+        <div class="function-list">
+            <div class="function-item">
+                <code>fsiv_compute_image_histogram()</code> - Calcula histograma con cv::calcHist
+            </div>
+            <div class="function-item">
+                <code>fsiv_normalize_histogram()</code> - Normalización L1 = 1.0
+            </div>
+            <div class="function-item">
+                <code>fsiv_accumulate_histogram()</code> - Histograma acumulativo
+            </div>
+            <div class="function-item">
+                <code>fsiv_compute_clipped_histogram()</code> - Recorte y redistribución
+            </div>
+            <div class="function-item">
+                <code>fsiv_compute_actual_clipping_histogram_value()</code> - Búsqueda binaria
+            </div>
+            <div class="function-item">
+                <code>fsiv_create_equalization_lookup_table()</code> - Tabla de transformación
+            </div>
+            <div class="function-item">
+                <code>fsiv_apply_lookup_table()</code> - Aplicación con cv::LUT
+            </div>
+        </div>
+        
+        <div style="background: rgba(46, 204, 113, 0.3); padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <strong>✅ Estado:</strong> Todas las funciones implementadas y funcionando correctamente
+        </div>
+    </div>
+
+    <!-- Slide 9: Efectos de los parámetros -->
+    <div class="slide">
+        <h2>📈 Efectos al Variar Parámetros</h2>
+        <div class="parameter-demo">
+            <h3>Variando S (Slope Factor):</h3>
+            <div class="comparison-container">
+                <div class="comparison-box">
+                    <h4>S = 0</h4>
+                    <p>❌ Sin limitación</p>
+                    <p>Máximo contraste</p>
+                    <p>Mucho ruido</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>S = 4</h4>
+                    <p>✅ Equilibrado</p>
+                    <p>Buen contraste</p>
+                    <p>Ruido controlado</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>S = 8</h4>
+                    <p>⚠️ Muy suave</p>
+                    <p>Poco contraste</p>
+                    <p>Sin ruido</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="parameter-demo">
+            <h3>Variando R (Radio):</h3>
+            <div class="comparison-container">
+                <div class="comparison-box">
+                    <h4>R = 0</h4>
+                    <p>Global</p>
+                    <p>Uniforme</p>
+                    <p>No adaptativo</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>R = 3</h4>
+                    <p>Local óptimo</p>
+                    <p>Adaptativo</p>
+                    <p>Transiciones suaves</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>R = 6</h4>
+                    <p>Ventana grande</p>
+                    <p>Poco adaptativo</p>
+                    <p>Muy suave</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Resultados y Comparación -->
+    <div class="slide">
+        <h2>🎯 Resultados con avion.png</h2>
+        <div class="tech-box">
+            <h3>Análisis de la imagen:</h3>
+            <ul>
+                <li><strong>Problema original:</strong> Imagen subexpuesta, bajo contraste</li>
+                <li><strong>Histograma original:</strong> Concentrado en valores bajos</li>
+                <li><strong>Detalles perdidos:</strong> Avión apenas visible</li>
+            </ul>
+        </div>
+        
+        <div class="algorithm-box">
+            <h3>Configuración óptima encontrada:</h3>
+            <div style="text-align: center; font-size: 1.3em; margin: 20px 0;">
+                <strong>S = 4.0</strong> (limitación moderada) + <strong>R = 3</strong> (ventana 9×9)
+            </div>
+            <ul>
+                <li>✅ Detalles del avión claramente visibles</li>
+                <li>✅ Texturas recuperadas en todas las regiones</li>
+                <li>✅ Ruido controlado en zonas uniformes</li>
+                <li>✅ Histograma de salida bien distribuido</li>
+            </ul>
+        </div>
+        
+        <div class="demo-note">
+            <strong>Resultado:</strong> Mejora dramática manteniendo naturalidad
+        </div>
+    </div>
+
+    <!-- Slide 11: Demostración en Vivo -->
+    <div class="slide">
+        <h2>🎬 ¡Demostración en Vivo!</h2>
+        <div style="text-align: center; margin-top: 50px;">
+            <div class="demo-note" style="font-size: 1.4em;">
+                <strong>Secuencia de demostración:</strong>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <ol style="font-size: 1.3em; text-align: left; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                    <li><strong>Ejecutar programa interactivo</strong><br>
+                        <code>./build/img_equalization -i data/avion.png output.png</code></li>
+                    <li><strong>Mostrar problema inicial</strong> - imagen oscura, poco contraste</li>
+                    <li><strong>Ecualización global</strong> (R=0) - mejora pero uniforme</li>
+                    <li><strong>Efecto del parámetro S</strong> - del ruido al suavizado</li>
+                    <li><strong>Efecto del parámetro R</strong> - de global a local adaptativo</li>
+                    <li><strong>Configuración óptima</strong> - S=4, R=3</li>
+                    <li><strong>Comparación final</strong> - antes vs después</li>
+                </ol>
+            </div>
+            
+            <div style="background: rgba(230, 126, 34, 0.3); padding: 20px; border-radius: 10px; margin-top: 40px;">
+                <strong>🎯 Objetivo:</strong> Demostrar la potencia de CLAHE para recuperar detalles<br>
+                manteniendo control sobre el ruido y naturalidad de la imagen
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            } else if (e.key === 'Home') {
+                showSlide(0);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides - 1);
+            }
+        });
+    </script>
+</body>
+</html>
