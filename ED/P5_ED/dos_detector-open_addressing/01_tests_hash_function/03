@@ -1,0 +1,3 @@
+#Generate uniform [1,5] random int numbers.
+GEN_UNIFORM_INT 1001 20 1 5
+

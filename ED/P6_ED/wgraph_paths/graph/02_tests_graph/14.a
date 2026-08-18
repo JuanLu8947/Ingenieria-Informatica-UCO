@@ -1,0 +1,12 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Is adjacent the vertex 'A' to vertex 'B' ?: Y
+Is adjacent the vertex 'A' to vertex 'C' ?: N
+Is adjacent the vertex 'B' to vertex 'A' ?: N
+Is adjacent the vertex 'B' to vertex 'C' ?: Y
+Is adjacent the vertex 'C' to vertex 'A' ?: N
+Is adjacent the vertex 'C' to vertex 'B' ?: N

@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "avl_tree",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test_avltnode::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_avltnode-Debug-bd2ba85fb48dc8f90206.json",
+					"name" : "test_avltnode",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_avltree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_avltree-Debug-c9c4de93867333b8bcea.json",
+					"name" : "test_avltree",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_bstnode::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_bstnode-Debug-9a22c85e901c15c5bf88.json",
+					"name" : "test_bstnode",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_bstree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_bstree-Debug-328861f92b7fb931d0e5.json",
+					"name" : "test_bstree",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/build",
+		"source" : "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

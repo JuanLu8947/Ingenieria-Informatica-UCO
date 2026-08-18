@@ -1,0 +1,13 @@
+#INSERT AGAIN A KEY ONLY UPDATE THE VALUE.
+create 16 4294967311 21 5
+insert 0 0
+insert 1 10
+insert 2 0
+insert 3 0
+insert 4 0
+insert 5 0
+insert 6 0
+insert 7 0
+show
+insert 1 20
+show

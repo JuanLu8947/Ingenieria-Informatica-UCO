@@ -1,0 +1,13 @@
+#DON'T BREAK CHAIN AFTER REMOVING
+create 16 4294967311 1 1
+insert 0 0
+insert 1 10
+insert 2 0
+insert 3 0
+insert 4 0
+insert 16 0
+show
+find 3
+remove
+show
+find 16

@@ -1,0 +1,4 @@
+Unfolding kdtree ...  ok.
+Find NN for p=[ -1 [ 3 5 ] ]
+L1 nn  : [ 0 [ 5 4 ] ]
+L1 dist: 3

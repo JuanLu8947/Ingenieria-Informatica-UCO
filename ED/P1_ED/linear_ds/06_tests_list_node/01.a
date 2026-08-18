@@ -1,0 +1,7 @@
+Creating node 0 ... ok.
+Creating node 1 ... ok.
+Creating node 2 ... ok.
+Linking node 0 as prev of node 1 ... ok.
+Linking node 2 as next of node 1 ... ok.
+Prev item of 1 is 0
+Next item of 1 is 2

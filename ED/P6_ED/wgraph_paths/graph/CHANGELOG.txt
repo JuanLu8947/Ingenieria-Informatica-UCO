@@ -1,0 +1,12 @@
+* 1.0
+- Start release.
+* 1.1
+- Fixed bug in post-c of goto_edge(EdgeRef e)
+- Added tests for goto_edge(EdgeRef e)
+- Rewritten docs.
+* 1.2
+- Added tests for Edge::other method.
+* 1.3
+- Use a .hpp/_imp.hpp for each ADT.
+- Split tests for TADS in separated programs.
+- Adapted to course 24-25.

@@ -1,0 +1,13 @@
+Creating an undirected graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Adding edge 2 for vertices ('C','A') with data item: '0.25' ... ok.
+Vertices: A B C
+Edges: A:B B:C C:A
+Moving edge iterator to edge ('A','B') ... ok.
+Removing current edge 'A':'B' ... ok.
+Vertices: A B C
+Edges: B:C C:A

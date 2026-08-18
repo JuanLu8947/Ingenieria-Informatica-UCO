@@ -1,0 +1,8 @@
+# Test fold a undirected graph.
+GRAPH_CREATE 0
+ADD_VERTEX A
+ADD_VERTEX B
+ADD_VERTEX C
+ADD_EDGE 0 1 0.5
+ADD_EDGE 1 2 0.7
+FOLD

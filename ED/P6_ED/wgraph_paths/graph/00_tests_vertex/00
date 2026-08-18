@@ -1,0 +1,3 @@
+#test vertex set visited
+VERTEX_CREATE 0 A
+VERTEX_PRINT 0

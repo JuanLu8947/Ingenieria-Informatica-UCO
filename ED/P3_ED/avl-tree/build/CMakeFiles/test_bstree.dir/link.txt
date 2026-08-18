@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\test_bstree.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\test_bstree.dir/objects.a @CMakeFiles\test_bstree.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -Wall -O0 -ggdb3 -Wl,--whole-archive CMakeFiles\test_bstree.dir/objects.a -Wl,--no-whole-archive -o test_bstree.exe -Wl,--out-implib,libtest_bstree.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\test_bstree.dir\linkLibs.rsp

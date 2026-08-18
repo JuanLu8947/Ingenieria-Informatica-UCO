@@ -1,0 +1,10 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Number of vertices: 3
+Number of edges: 2
+Vertices: A B C
+Edges: A:B B:C

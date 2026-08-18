@@ -1,0 +1,3 @@
+Loading dataset:  size = 6 patterns with dims = 2
+Creating kdtree from dataset ...  ok.
+2 [ [ 1 [ 7 2 ] ] [ [ 0 [ 5 4 ] ] [ [ 0 [ 2 3 ] ] [] [] ] [ [ 1 [ 4 7 ] ] [] [] ] ] [ [ 1 [ 9 6 ] ] [ [ 0 [ 8 1 ] ] [] [] ] [] ] ]

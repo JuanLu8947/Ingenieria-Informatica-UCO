@@ -1,0 +1,11 @@
+#test unfold an undirected graph
+UNFOLD
+UNDIRECTED
+3
+A
+B
+C
+2
+A B 0.5
+B C 1
+FOLD

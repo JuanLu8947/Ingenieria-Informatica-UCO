@@ -1,0 +1,5 @@
+Creating a vertex with label 0 ... ok.
+Creating a vertex with label 1 ... ok.
+Creating edge 0 connecting  vertices (0,1) with data 0.5 ...ok.
+Edge (0,1)->other(0) is 1.
+Edge (0,1)->other(1) is 0.

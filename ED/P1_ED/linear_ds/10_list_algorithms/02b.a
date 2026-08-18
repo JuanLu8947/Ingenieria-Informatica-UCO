@@ -1,0 +1,4 @@
+Creating a new list ... ok.
+Splice the list [ 6 7 8 9 10 11 12 13 ] range [7,10) at current list position end ... ok.
+Remainder list: [ 6 10 11 12 13 ]
+Folding list: [ 7 8 9 ]

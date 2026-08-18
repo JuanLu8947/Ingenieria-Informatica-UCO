@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250308-1328-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.28.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="JuanLu"
+	OSRelease="5.15.167.4-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Tue Nov 5 00:21:55 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="25"
+	ModelID="68"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="2048"
+	TotalPhysicalMemory="7852"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3094.06"
+	>
+	<Testing>
+		<StartDateTime>Mar 08 17:24 CET</StartDateTime>
+		<StartTestTime>1741451096</StartTestTime>
+		<TestList>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestCDArray</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestCDArrayFoldUnfold</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestQueue</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestDNode</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestSimpleList</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListNode</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListIterator</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListEditing</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListFoldUnfold</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListAlgorithm</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestStack</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>TestCDArray</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestCDArray</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_cdarray" "01_tests_cdarray"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.164832</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_cdarray" "01_tests_cdarray"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwjC8BChTHJ6ckFhUlVuobGCjo6ekpSEcbG+WGgJQWJBYXp6boSUcb5HKFENBrSIFeIwr0GlOg14QCvaYU6DWjQK85BXotKNBriUevoYG+oYECWANMnAsAysfJQA==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestCDArrayFoldUnfold</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestCDArrayFoldUnfold</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_cdarray" "02_tests_cdarray_fold_unfold"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0819039</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_cdarray" "02_tests_cdarray_fold_unfold"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwii8BChTHJ6ckFhUlVsan5eekxJfmgSh9AwMFPT09BeloY6PcEJC2gsTi4tQUPelog1yuEBLMMaSSOUZUMscYjzkm+iYKYK0wUS4ACOdndQ==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestQueue</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestQueue</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_queue" "03_tests_queue"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0951384</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_queue" "03_tests_queue"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwji8BChTHF5amlqbqGxgo6OnpKUhHGxvlhoAUFiQWF6em6ElHG+RyheDVaUi2TiOydRqTrdOEbJ2meHSa6ZspgBXDRLkAj8N2Vg==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestDNode</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestDNode</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_dnode" "04_tests_simple_list_node"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0701187</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_dnode" "04_tests_simple_list_node"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwiS8BChTHF2fmFuSkxudkFpfE5+WnpOobGCjo6ekpSEcbG+WGgPQUJBYXp6boSUcb5HKFEGuIIR5DjPSNFMD6YKJcAH9MNEw=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="failed">
+			<Name>TestSimpleList</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestSimpleList</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "05_tests_simple_list"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0677209</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "05_tests_simple_list"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNULtOw0AQ7P0LabaCpMBnm0dhkkgoTgGKRAqnitBxsjfkhH1n7a4Dn8/ZkNQ0K+3Mzmh2SmQB6p2z7iOH5F5LAFizbbsGdWNZVJJAHMcw2d9mbTmcd4YZ63iyT9qo/Ic+PevTX/3BOstHrOHLyhGQyBNUvka4eRg9B4tRmoNqnahK7RiJ1Utv3KZXBfKn+E7tVq8qWxkiJKPWLNRX0pMpjHierouZ2pKpxFaG9bpQ23SYjXVoSNesBn8dUsbHrsuzu7scNgGZl8s8txIcJYS6IIStP+G08i7EP9NXM9iPH5SwAOvk8cKEfZA+/63zQC7fcngKtZFY7+CdUPQJFgvwTa07z9rht1zDwdgmNBtFqcpgbPJcdvQDdV6SOg==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestListNode</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListNode</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "06_tests_list_node"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0667488</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "06_tests_list_node"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwiy8BChTH52QWl8Tn5aek6hsYKOjp6SlIRxsb5YaAFBckFhenpuhJRxvkcoUQ1G2IR7eRvpECWANMlAsAT4Uufg==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestListIterator</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListIterator</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_iterator" "07_tests_list_iterator"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.125411</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_iterator" "07_tests_list_iterator"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwjy8BChTH52QWl8RnlqQWJZbkF+kbGCno6ekpSEcbG+WGgDQUJBYXp6boSUcb5HKFEGWCMcUmmFBsginFJpjhMcFU31QBrAkmygUAd2t0jQ==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="failed">
+			<Name>TestListEditing</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListEditing</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "08_tests_list_editing"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0877907</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "08_tests_list_editing"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJztkjFvwjAQhXf+AstNLQyNk4CqygWkijC0QipDmFDlWokpVhM7urvQ/vw6KTDTvYule8/+9O7JuSEGbJ2z7kNC/KA4CKQqS6xMaTnIIo4hiiIY7iZpnXf3G01kymi4i+tBfg0gOQOSX8DeOksHU8KX5QMYRI9Q+NLA3X0P7Rg9QoKoHYtCbMkgiZdWu3UrMkOf7BuxXb6KdKkRDWqxIsa24BZ1ptnTaJWNxQZ1wbbQpFaZ2CTdWVlnNKqSRB/R1k10aBqZTqcS1kGZ5QspLQcih1AXBU3tj2ZUeBfin+2bMez6DXKYg3X8eHHC3D19Po2zYC7eJDyF3pCtd/COhtUR5nPwVakaT8qZb76FvbZVqHZwXa/pf69/7TURE+irPP/iwQ9lbgqc====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestListFoldUnfold</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListFoldUnfold</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "09_tests_list_fold_unfold"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.105883</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "09_tests_list_fold_unfold"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjCwjC8BChTH52QWl8Sn5eekxJfmgSh9AwMFPT09BeloY6PcEJCegsTi4tQUPelog1yuEGINMaSGIUbUMMSYGoaY4DHEVN9UAawPJsoFAAl8ejc=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestListAlgorithm</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestListAlgorithm</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "10_list_algorithms"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.33064</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_list" "10_list_algorithms"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyl0jsOQEAUheHeFjR3BWOuN+uYTiESwiRmiDv2j0JLcdo/5+uOmSTQcXpv/dwS6361EvphnbfDhsVJojUppSjustSZZ7wPItOo4k67yPxqhnQK6QzSOaQLSJeQriBdQ7pBNH99jTlhpnBneXt0AUVP5kE=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="failed">
+			<Name>TestStack</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/TestStack</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_stack" "11_tests_stack"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0745015</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build//test_stack" "11_tests_stack"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJydkDFvwjAQhff8BZabWhgak4A6uIBUEYZWSGUIE6pcyzHFgtjR3YX259cJhbFDF8v3nr+78ystMWDrvfOfErJMcRRIEWtzFOMxpGkKg90kr8vuYaOJbJUOduM6Kf8ks3+T+ZXMLuTeeUcHW8GX4wNYxIBgQmXh4bHv1sEXVoKoPQsjtmSRxGur/boVhaUjh0Zsl28iX2pEi1qsiLE13KIuNAcaroqR2KA27IwmtSrEJuvOk/NWo6oo3uIUVzfpoWlkPp1KWEdlVi6kdBw7ctzqpqCtw9kOTfBx/6t9N4Jd/4US5uA8P92cWHfoy285i+biXcJzTAzZBQ8faFmdYT6HcKpUE0h5+833sNfuFENNklxMoA/xmnPyA1BfoCQ=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Mar 08 17:24 CET</EndDateTime>
+		<EndTestTime>1741451097</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

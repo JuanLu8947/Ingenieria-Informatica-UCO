@@ -1,0 +1,9 @@
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test_list.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test_dnode.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test_iterator.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test_stack.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test_cdarray.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test_queue.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/test.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/edit_cache.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build/CMakeFiles/rebuild_cache.dir

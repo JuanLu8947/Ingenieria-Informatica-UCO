@@ -1,0 +1,6 @@
+# insert desc.
+create desc
+is_empty
+size
+insert 1 2 3
+print

@@ -1,0 +1,18 @@
+* 1.0
+- Start release.
+* 1.1
+- Fixed file DO_NOT_MODIFY.txt.
+* 2.1
+- Rewrite the ADT's Trie/TrieNode according to the curse 2021/22.
+* 2.2
+- Added README.md.
+- Adapted to course 22-23.
+* 2.3
+- Adapted to course 23-24.
+* 3.0
+- Added testing with ctest.
+- Added support to utf-8 encoding.
+- Adapted to course 24-25.
+- 3.0.1
+- Fixed exception message "Wrong input format." as "Wrong input format" when
+an unexpected format is found unfolding a trie node.

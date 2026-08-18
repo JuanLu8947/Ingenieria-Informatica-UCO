@@ -1,0 +1,8 @@
+Creating a new list ... ok.
+Inserting 3 at from ... ok.
+Inserting 2 at from ... ok.
+Inserting 1 at from ... ok.
+Inserting 0 at from ... ok.
+Getting iterator at begin ... ok.
+Move iterator to next 4 positions ... ok.
+Is iterator at end position?: Y

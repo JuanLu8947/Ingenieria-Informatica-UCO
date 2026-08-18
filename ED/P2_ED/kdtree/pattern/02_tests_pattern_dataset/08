@@ -1,0 +1,4 @@
+# Test dataset wrong format
+LOAD_DATASET
+1 5
+[ 0 [ -1 2 ] ]

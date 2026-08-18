@@ -1,0 +1,15 @@
+Creating an undirected graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Moving vertex iterator to vertex with key 'A' ... ok.
+Current vertex with label 0 visited flag: F data: 'A' data key: 'A'.
+Edges incident in current vertex:  ('A','B')
+Moving vertex iterator to vertex with key 'B' ... ok.
+Current vertex with label 1 visited flag: F data: 'B' data key: 'B'.
+Edges incident in current vertex:  ('A','B') ('B','C')
+Moving vertex iterator to vertex with key 'C' ... ok.
+Current vertex with label 2 visited flag: F data: 'C' data key: 'C'.
+Edges incident in current vertex:  ('B','C')

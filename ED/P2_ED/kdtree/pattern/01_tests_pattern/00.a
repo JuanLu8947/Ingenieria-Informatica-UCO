@@ -1,0 +1,5 @@
+Created new pattern with idx=0 with class label: 1
+dts[0] class label: 1
+dts[0] dim: 5
+pattern dts[0] value idx:0 value = 1
+pattern dts[0] value idx:1 value = 2

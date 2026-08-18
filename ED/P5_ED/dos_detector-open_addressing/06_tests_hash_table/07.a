@@ -1,0 +1,12 @@
+Created table with size: 16
+Inserted pair <0:0> at table position: 5
+Inserted pair <1:10> at table position: 10
+Inserted pair <2:0> at table position: 15
+Inserted pair <3:0> at table position: 4
+Inserted pair <4:0> at table position: 9
+Inserted pair <5:0> at table position: 14
+Inserted pair <6:0> at table position: 3
+Inserted pair <7:0> at table position: 8
+Table: [0:- 1:- 2:- 3:<6,0> 4:<3,0> 5:<0,0> 6:- 7:- 8:<7,0> 9:<4,0> 10:<1,10> 11:- 12:- 13:- 14:<5,0> 15:<2,0> ]
+Inserted pair <1:20> at table position: 10
+Table: [0:- 1:- 2:- 3:<6,0> 4:<3,0> 5:<0,0> 6:- 7:- 8:<7,0> 9:<4,0> 10:<1,20> 11:- 12:- 13:- 14:<5,0> 15:<2,0> ]

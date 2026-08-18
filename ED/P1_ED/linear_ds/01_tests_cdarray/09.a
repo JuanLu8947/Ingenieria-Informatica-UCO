@@ -1,0 +1,14 @@
+Creating cdarray with capacity 4 ... ok.
+Push front 1 ... ok.
+Push front 2 ... ok.
+Push front 3 ... ok.
+Push front 4 ... ok.
+Array size = 4
+Array capacity = 4
+Setting at pos 1 the value -1 ... ok.
+Array size = 4
+Array capacity = 4
+Value at pos 0 is 4
+Value at pos 1 is -1
+Value at pos 2 is 2
+Value at pos 3 is 1

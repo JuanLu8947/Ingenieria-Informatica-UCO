@@ -1,0 +1,6 @@
+Inserted key: 'HOLA MUNDO'.
+Is it empty? no.
+Trie's prefix: ''.
+Is trie's prefix a key? no.
+Has 'HOLA MUNDO' key?: yes.
+Has 'HOLA MUNDOS' key?: no.

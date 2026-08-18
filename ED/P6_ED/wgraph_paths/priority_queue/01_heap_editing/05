@@ -1,0 +1,9 @@
+# insert/remove desc.
+create desc
+is_empty
+size
+insert 1 2 3 4 5
+item
+remove
+size
+print

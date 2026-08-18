@@ -1,0 +1,8 @@
+Creating a vertex with label 0 ... ok.
+Creating a vertex with label 1 ... ok.
+Creating edge 0 connecting  vertices (0,1) with data 0.5 ...ok.
+Edge 0 connecting vertices (0,1), visited flag: F, data: 0.5
+Setting visited flag of edge with label 0 to T ...ok.
+Edge 0 connecting vertices (0,1), visited flag: T, data: 0.5
+Setting visited flag of edge with label 0 to F ...ok.
+Edge 0 connecting vertices (0,1), visited flag: F, data: 0.5

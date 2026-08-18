@@ -1,0 +1,16 @@
+Creating an undirected graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Folding graph ... 
+UNDIRECTED
+3
+A
+B
+C
+2
+A B 0.5
+B C 0.7
+

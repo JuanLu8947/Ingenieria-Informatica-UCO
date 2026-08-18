@@ -1,0 +1,5 @@
+/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build/CMakeFiles/test_btree_node.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build/CMakeFiles/test_btree.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build/CMakeFiles/test.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build/CMakeFiles/rebuild_cache.dir

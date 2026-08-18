@@ -1,0 +1,5 @@
+Created new pattern with idx=0 with class label: 0
+setting class label of patter dts[0] to 10
+Pattern idx: 0 class label:10 values:  1, 2, 3, 4, 5,
+setting pattern dts[0] value idx:0 to  value -1
+Pattern idx: 0 class label:10 values:  -1, 2, 3, 4, 5,

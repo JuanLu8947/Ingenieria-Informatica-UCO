@@ -1,0 +1,10 @@
+LOAD_DATASET
+6 2
+[ 0 [ 2 3 ] ]
+[ 0 [ 5 4 ] ]
+[ 1 [ 9 6 ] ]
+[ 1 [ 4 7 ] ]
+[ 0 [ 8 1 ] ]
+[ 1 [ 7 2 ] ]
+CREATE_KDTREE
+FOLD_KDTREE

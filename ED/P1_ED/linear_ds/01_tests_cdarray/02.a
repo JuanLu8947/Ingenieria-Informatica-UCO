@@ -1,0 +1,11 @@
+Creating cdarray with capacity 1 ... ok.
+Array size = 0
+Array capacity = 1
+Push front -1 ... ok.
+Push front -2 ... ok.
+Is array full()? Y
+Is array empty()? N
+Array size = 2
+Array capacity = 2
+Front value is -2
+Back value is -1

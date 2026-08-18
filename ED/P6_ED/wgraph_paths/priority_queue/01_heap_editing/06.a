@@ -1,0 +1,13 @@
+Creating heap with order: ascended
+Inserting:  24 19 39 6 15 38 37 42 73 68
+Data: [ 6 15 37 24 19 39 38 42 73 68 ]
+Removing:  ok.
+Data: [ 15 19 37 24 68 39 38 42 73 6 ]
+Inserting:  21 31 56 82 32
+Data: [ 15 19 32 24 21 39 37 42 73 68 31 56 82 38 ]
+Removing:  ok.
+Removing:  ok.
+Data: [ 21 24 32 42 31 39 37 82 73 68 38 56 19 15 ]
+Inserting:  48 35 92 72 43 66 75
+size = 19
+Data: [ 21 24 32 42 31 39 35 43 66 68 38 56 48 37 92 82 72 73 75 ]

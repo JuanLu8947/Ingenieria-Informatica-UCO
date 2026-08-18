@@ -1,0 +1,12 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Moving edge iterator to edge ('A','B') ... ok.
+Current vertex with label 0 visited flag: F data: 'A' data key: 'A'.
+Current edge ('A','B'), visited flag: F, data: 0.5
+Moving edge iterator to edge ('B','C') ... ok.
+Current vertex with label 1 visited flag: F data: 'B' data key: 'B'.
+Current edge ('B','C'), visited flag: F, data: 0.7

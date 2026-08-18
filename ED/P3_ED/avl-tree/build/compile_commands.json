@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -D__ONLY_BSTREE__=1 @CMakeFiles/test_bstnode.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_bstnode.dir\\test_avltnode.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P3_ED\\avl-tree\\test_avltnode.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/test_avltnode.cpp",
+  "output": "CMakeFiles/test_bstnode.dir/test_avltnode.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_avltnode.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_avltnode.dir\\test_avltnode.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P3_ED\\avl-tree\\test_avltnode.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/test_avltnode.cpp",
+  "output": "CMakeFiles/test_avltnode.dir/test_avltnode.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -D__ONLY_BSTREE__=1 @CMakeFiles/test_bstree.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_bstree.dir\\test_avltree.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P3_ED\\avl-tree\\test_avltree.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/test_avltree.cpp",
+  "output": "CMakeFiles/test_bstree.dir/test_avltree.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_avltree.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_avltree.dir\\test_avltree.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P3_ED\\avl-tree\\test_avltree.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P3_ED/avl-tree/test_avltree.cpp",
+  "output": "CMakeFiles/test_avltree.dir/test_avltree.cpp.obj"
+}
+]

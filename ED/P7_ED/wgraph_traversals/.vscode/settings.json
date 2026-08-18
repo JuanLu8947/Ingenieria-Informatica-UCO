@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "atomic": "cpp",
+        "cwchar": "cpp",
+        "string": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "new": "cpp",
+        "ostream": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp"
+    }
+}

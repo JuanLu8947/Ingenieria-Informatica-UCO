@@ -1,0 +1,5 @@
+UNFOLD [ 1 2 3 4 5 ]
+FOLD
+END
+SPLICE_ALL [ 6 7 8 ]
+FOLD

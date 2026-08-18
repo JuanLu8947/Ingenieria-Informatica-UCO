@@ -1,0 +1,32 @@
+Inserting 9 8 7 6 5 4 3 2 1 0 
+Move iterator at the beginning ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+Move iterator to next position ... ok.
+*iter = 9
+Move iterator to the prev position ... ok.
+*iter = 8
+Move iterator to the prev position ... ok.
+*iter = 7
+Move iterator to the prev position ... ok.
+*iter = 6
+Move iterator to the prev position ... ok.
+*iter = 5
+Move iterator to the prev position ... ok.
+*iter = 4
+Move iterator to the prev position ... ok.
+*iter = 3
+Move iterator to the prev position ... ok.
+*iter = 2
+Move iterator to the prev position ... ok.
+*iter = 1
+Move iterator to the prev position ... ok.
+*iter = 0
+Move iterator to the prev position ... ok.
+Is iterator at the end ? Y

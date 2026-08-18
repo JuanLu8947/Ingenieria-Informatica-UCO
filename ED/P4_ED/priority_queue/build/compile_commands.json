@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_heap.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_heap.dir\\test_heap.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P4_ED\\priority_queue\\test_heap.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/test_heap.cpp",
+  "output": "CMakeFiles/test_heap.dir/test_heap.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_pqueue.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_pqueue.dir\\test_pqueue.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P4_ED\\priority_queue\\test_pqueue.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/test_pqueue.cpp",
+  "output": "CMakeFiles/test_pqueue.dir/test_pqueue.cpp.obj"
+}
+]

@@ -1,0 +1,13 @@
+unfolding graph ...  ok.
+Folding graph ... 
+DIRECTED
+3
+A
+B
+C
+4
+A B 0.5
+B A 0.25
+B C 1
+C B 0.25
+

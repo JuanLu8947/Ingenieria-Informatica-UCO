@@ -1,0 +1,16 @@
+#REUSE DELECTED ENTRIES WHEN INSERTING THE SAME KEY
+create 16 4294967311 1 1
+insert 0 0
+insert 1 10
+insert 2 0
+insert 3 0
+insert 4 0
+load_factor
+show
+find 3
+remove
+load_factor
+show
+insert 3 5
+load_factor
+show

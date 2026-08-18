@@ -1,0 +1,5 @@
+Predecessors: [ 0 1 2 46 13 5 6 7 13 9 10 11 13 13 26 15 16 13 27 42 20 13 22 48 24 25 50 12 13 29 30 50 32 48 34 35 36 8 38 39 40 27 13 43 44 45 12 47 3 49 37 51 ]
+Distances   : [ inf inf inf 457 272 inf inf inf 319 inf inf inf 201 0 1002 inf inf 166 449 232 inf 104 inf 714 inf inf 904 391 187 inf inf 875 inf 627 inf inf inf 529 inf inf inf 478 138 inf inf inf 320 inf 579 inf 591 inf ]
+Path from: 'CORDOBA' to 'CORU#A':  CORDOBA CACERES SALAMANCA ZAMORA LUGO CORU#A distance: 1002
+Straight line distance: 682.698 km.
+Number of iterations: 33

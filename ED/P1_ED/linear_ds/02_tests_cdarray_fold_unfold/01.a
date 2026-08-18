@@ -1,0 +1,6 @@
+Creating cdarray with capacity 4 ... ok.
+Push back 1 ... ok.
+Push back 2 ... ok.
+Push back 3 ... ok.
+Push back 4 ... ok.
+Folding array: [ 1 2 3 4 ]

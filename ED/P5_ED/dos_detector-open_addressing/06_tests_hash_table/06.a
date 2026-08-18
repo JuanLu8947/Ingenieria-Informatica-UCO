@@ -1,0 +1,15 @@
+Created table with size: 16
+Inserted pair <0:0> at table position: 1
+Inserted pair <1:10> at table position: 2
+Inserted pair <2:0> at table position: 3
+Inserted pair <3:0> at table position: 4
+Inserted pair <4:0> at table position: 5
+load factor: 0.3125
+Table: [0:- 1:<0,0> 2:<1,10> 3:<2,0> 4:<3,0> 5:<4,0> 6:- 7:- 8:- 9:- 10:- 11:- 12:- 13:- 14:- 15:- ]
+Key '3' found.
+Removing key: 3 ...  ok.
+load factor: 0.3125
+Table: [0:- 1:<0,0> 2:<1,10> 3:<2,0> 4:x 5:<4,0> 6:- 7:- 8:- 9:- 10:- 11:- 12:- 13:- 14:- 15:- ]
+Inserted pair <3:5> at table position: 4
+load factor: 0.3125
+Table: [0:- 1:<0,0> 2:<1,10> 3:<2,0> 4:<3,5> 5:<4,0> 6:- 7:- 8:- 9:- 10:- 11:- 12:- 13:- 14:- 15:- ]

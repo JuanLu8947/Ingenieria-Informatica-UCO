@@ -1,0 +1,5 @@
+Predecessors: [ 30 2 2 46 13 5 6 27 13 9 10 11 21 17 26 0 16 2 27 42 20 2 22 48 24 25 23 21 2 29 2 31 23 48 34 35 36 3 38 39 40 27 17 43 44 45 12 47 27 49 37 51 ]
+Distances   : [ 367 294 0 663 604 inf inf 800 651 inf inf inf 407 332 1226 509 inf 166 621 516 inf 228 inf 892 inf inf 1128 563 219 inf 218 inf 1010 805 inf inf inf 760 inf inf inf 650 422 inf inf inf 526 inf 757 inf 822 inf ]
+Path from: 'ALMERIA' to 'CORU#A':  ALMERIA JAEN MADRID VALLADOLID LEON LUGO CORU#A distance: 1226
+Straight line distance: 884.465 km.
+Number of iterations: 51

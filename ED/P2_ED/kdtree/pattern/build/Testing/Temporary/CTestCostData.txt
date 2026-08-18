@@ -1,0 +1,4 @@
+TestPattern 1 0.0884082
+TestDataset 1 0.0796957
+TestPatternDistances 4 0.015463
+---

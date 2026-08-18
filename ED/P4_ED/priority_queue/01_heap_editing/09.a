@@ -1,0 +1,5 @@
+Creating heap with order: ascended
+Inserting:  6 0 6 6 3 6 6 6 5 5 3 6 8 8 4 3 5 9 8
+Data: [ 0 3 4 3 3 6 6 5 6 6 5 6 8 8 6 6 5 9 8 ]
+Removing:  ok.
+Data: [ 3 3 4 3 5 6 6 5 6 6 8 6 8 8 6 6 5 9 0 ]

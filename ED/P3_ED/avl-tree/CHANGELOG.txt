@@ -1,0 +1,32 @@
+* 1.0
+- Start release.
+* 1.1
+- Split code from test_avltree.cpp to have a test_avltnode.cpp to test
+  ADT AVLTNode separatly from AVLTree.
+* 1.2
+- Corrected several bugs due to do not update link to parent.
+* 1.3
+- Reimplement the rotation algorithm to simplify the balance process.
+* 1.4
+- Removed optional arguments (due to clang issues).
+- updated to course 23-24.
+* 1.5
+- Using refs only for nodes.
+- Simplify to use only one test program.
+* 1.6
+- Changed the default value of AVL Tree::is_empty() to true so that the 
+  test program does not fail from the beginning.
+* 1.7
+- Implemented AVLTNode in separate files.
+- Added post-c to assure link to parent.
+- Improved README.md
+- Added separate tests for compute_min_max_branch_length.
+- Move to AVLTNode the logic to maintain the links to the parent node of a child.
+- Added CTests.
+- Adapted to course 24-25.
+* 1.8
+- Split tests for node in separate test program.
+* 1.9
+- Improved separate testing for ONLY_BSTREE mode.
+- Enhance AVLTree class documentation and improve method signatures to use 
+  references instead of copying where appropriate.

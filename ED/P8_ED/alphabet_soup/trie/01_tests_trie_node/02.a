@@ -1,0 +1,18 @@
+Set child for symbol 'A'.
+Set child for symbol 'B'.
+Set child for symbol 'C'.
+Set child for symbol 'D'.
+Found 'A': yes.
+Does current exist? yes.
+Current symbol 'A'.
+Found 'B': yes.
+Does current exist? yes.
+Current symbol 'B'.
+Found 'C': yes.
+Does current exist? yes.
+Current symbol 'C'.
+Found 'D': yes.
+Does current exist? yes.
+Current symbol 'D'.
+Found 'E': no.
+Does current exist? no.

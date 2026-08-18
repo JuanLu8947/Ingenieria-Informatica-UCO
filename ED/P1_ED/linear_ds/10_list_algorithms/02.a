@@ -1,0 +1,7 @@
+Unfolding list ... ok.
+Folding list: [ 1 2 3 4 5 ]
+Getting iterator at begin ... ok.
+Move iterator to next 1 positions ... ok.
+Splice the list [ 6 7 8 9 10 11 12 13 ] range [7,10) at current list position 2 ... ok.
+Remainder list: [ 6 10 11 12 13 ]
+Folding list: [ 1 7 8 9 2 3 4 5 ]

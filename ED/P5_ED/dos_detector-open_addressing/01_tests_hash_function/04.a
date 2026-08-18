@@ -1,0 +1,6 @@
+Universal hashing for key=15 with m=16 p=23 a=1 b=1 is 0
+Universal hashing for key=11 with m=16 p=23 a=1 b=1 is 12
+Universal hashing for key=15 with m=16 p=23 a=2 b=5 is 12
+Universal hashing for key=11 with m=16 p=23 a=2 b=5 is 4
+Universal hashing for key=15 with m=32 p=1001 a=2 b=5 is 3
+Universal hashing for key=11 with m=32 p=1001 a=2 b=5 is 27

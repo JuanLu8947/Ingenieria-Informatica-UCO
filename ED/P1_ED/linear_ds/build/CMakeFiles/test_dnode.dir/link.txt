@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\test_dnode.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\test_dnode.dir/objects.a @CMakeFiles\test_dnode.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -Wall -O0 -ggdb3 -Wl,--whole-archive CMakeFiles\test_dnode.dir/objects.a -Wl,--no-whole-archive -o test_dnode.exe -Wl,--out-implib,libtest_dnode.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\test_dnode.dir\linkLibs.rsp

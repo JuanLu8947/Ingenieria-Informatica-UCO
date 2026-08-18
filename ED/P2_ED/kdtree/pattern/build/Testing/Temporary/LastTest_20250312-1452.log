@@ -1,0 +1,67 @@
+Start testing: Mar 12 15:52 CET
+----------------------------------------------------------
+1/3 Testing: TestPattern
+1/3 Test: TestPattern
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "01_tests_pattern"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern
+"TestPattern" start time: Mar 12 15:52 CET
+Output:
+----------------------------------------------------------
+Test running: 01_tests_pattern/00 ... [32mTest passed.[0m
+Test running: 01_tests_pattern/02 ... [32mTest passed.[0m
+Test running: 01_tests_pattern/03 ... [31mTest finished with error code -11[0m
+
+Test running: 01_tests_pattern/04 ... [31mTest finished with error code -11[0m
+
+2/4 tests passed.
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Failed.
+"TestPattern" end time: Mar 12 15:52 CET
+"TestPattern" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: TestDataset
+2/3 Test: TestDataset
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "02_tests_pattern_dataset"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern
+"TestDataset" start time: Mar 12 15:52 CET
+Output:
+----------------------------------------------------------
+Test running: 02_tests_pattern_dataset/05 ... [31mTest finished with error code -11[0m
+
+Test running: 02_tests_pattern_dataset/06 ... [31mTest finished with error code -11[0m
+
+Test running: 02_tests_pattern_dataset/07 ... [31mTest finished with error code -11[0m
+
+Test running: 02_tests_pattern_dataset/08 ... [31mTest finished with error code -11[0m
+
+0/4 tests passed.
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Failed.
+"TestDataset" end time: Mar 12 15:52 CET
+"TestDataset" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: TestPatternDistances
+3/3 Test: TestPatternDistances
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "03_tests_pattern_distances"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern
+"TestPatternDistances" start time: Mar 12 15:52 CET
+Output:
+----------------------------------------------------------
+Test running: 03_tests_pattern_distances/04 ... [32mTest passed.[0m
+Test running: 03_tests_pattern_distances/05 ... [32mTest passed.[0m
+2/2 tests passed.
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"TestPatternDistances" end time: Mar 12 15:52 CET
+"TestPatternDistances" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 12 15:52 CET

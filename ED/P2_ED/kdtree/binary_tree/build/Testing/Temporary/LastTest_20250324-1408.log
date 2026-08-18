@@ -1,0 +1,123 @@
+Start testing: Mar 24 15:08 CET
+----------------------------------------------------------
+1/5 Testing: TestBTNode
+1/5 Test: TestBTNode
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree_node" "01_tests_btree_node"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree
+"TestBTNode" start time: Mar 24 15:08 CET
+Output:
+----------------------------------------------------------
+Test running: 01_tests_btree_node/00 ... [32mTest passed.[0m
+Test running: 01_tests_btree_node/01 ... [32mTest passed.[0m
+Test running: 01_tests_btree_node/02 ... [32mTest passed.[0m
+Test running: 01_tests_btree_node/03 ... [32mTest passed.[0m
+4/4 tests passed.
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"TestBTNode" end time: Mar 24 15:08 CET
+"TestBTNode" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: TestBTreeFoldUnfold
+2/5 Test: TestBTreeFoldUnfold
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "02_tests_btree_fold_unfold"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree
+"TestBTreeFoldUnfold" start time: Mar 24 15:08 CET
+Output:
+----------------------------------------------------------
+Test running: 02_tests_btree_fold_unfold/00 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/01 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/02 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/03 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/04 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/05 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/10 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/11 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/12 ... [32mTest passed.[0m
+Test running: 02_tests_btree_fold_unfold/13 ... [32mTest passed.[0m
+10/10 tests passed.
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"TestBTreeFoldUnfold" end time: Mar 24 15:08 CET
+"TestBTreeFoldUnfold" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: TestBTreeHeightSize
+3/5 Test: TestBTreeHeightSize
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "03_tests_btree_height_size"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree
+"TestBTreeHeightSize" start time: Mar 24 15:08 CET
+Output:
+----------------------------------------------------------
+Test running: 03_tests_btree_height_size/05 ... [32mTest passed.[0m
+Test running: 03_tests_btree_height_size/06 ... [32mTest passed.[0m
+Test running: 03_tests_btree_height_size/07 ... [32mTest passed.[0m
+Test running: 03_tests_btree_height_size/08 ... [32mTest passed.[0m
+Test running: 03_tests_btree_height_size/09 ... [32mTest passed.[0m
+5/5 tests passed.
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"TestBTreeHeightSize" end time: Mar 24 15:08 CET
+"TestBTreeHeightSize" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: TestBTreeTraversals
+4/5 Test: TestBTreeTraversals
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "04_tests_traversals"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree
+"TestBTreeTraversals" start time: Mar 24 15:08 CET
+Output:
+----------------------------------------------------------
+Test running: 04_tests_traversals/10 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/11 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/12 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/13 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/20 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/21 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/22 ... [32mTest passed.[0m
+Test running: 04_tests_traversals/23 ... [32mTest passed.[0m
+8/8 tests passed.
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"TestBTreeTraversals" end time: Mar 24 15:08 CET
+"TestBTreeTraversals" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: TestBTreeInOrder
+5/5 Test: TestBTreeInOrder
+Command: "/usr/bin/python3" "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "05_tests_inorder"
+Directory: /mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree
+"TestBTreeInOrder" start time: Mar 24 15:08 CET
+Output:
+----------------------------------------------------------
+Test running: 05_tests_inorder/30 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/31 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/32 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/33 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/34 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/40 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/41 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/42 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/43 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/44 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/45 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/46 ... [32mTest passed.[0m
+Test running: 05_tests_inorder/47 ... [32mTest passed.[0m
+13/13 tests passed.
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"TestBTreeInOrder" end time: Mar 24 15:08 CET
+"TestBTreeInOrder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 24 15:08 CET

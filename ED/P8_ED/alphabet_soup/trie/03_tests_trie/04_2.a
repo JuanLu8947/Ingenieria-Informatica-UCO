@@ -1,0 +1,9 @@
+Inserted key: 'HOLA MUNDO1'.
+Inserted key: 'HOLA MUNDO2'.
+Inserted key: 'HOLA TIERRA'.
+Finding subtrie for prefix 'HOLA ' ... (found)
+Is it empty? no.
+Trie's prefix: 'HOLA '.
+Is trie's prefix a key? no.
+Has 'MUNDO1' key?: yes.
+Has 'MUNDO3' key?: no.

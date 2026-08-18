@@ -1,0 +1,7 @@
+* 1.0
+- Initial release.
+* 2.0
+- Rewritten to implement a priority queue.
+- Adapted to course 24-25.
+* 2.0.1
+- Fixed wrong names shit_up an shit_down.

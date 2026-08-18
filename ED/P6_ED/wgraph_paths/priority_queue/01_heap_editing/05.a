@@ -1,0 +1,8 @@
+Creating heap with order: descended
+empty
+size = 0
+Inserting:  1 2 3 4 5
+item = 5
+Removing:  ok.
+size = 4
+Data: [ 4 3 2 1 5 ]

@@ -1,0 +1,8 @@
+Creating a directed graph ...  ok.
+Number of vertices: 0
+Adding vertex with data item: 'A' ... ok.
+Has the graph the vertex with label = 0? Y
+Current vertex with label 0 visited flag: F data: 'A' data key: 'A'.
+Number of vertices: 1
+Checking visited flags:
+	Vertex 'A':F incident edges:

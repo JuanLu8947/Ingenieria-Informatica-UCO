@@ -1,0 +1,22 @@
+Unfolding list ... ok.
+Folding list: [ 0 6 6 8 0 5 4 5 7 9 ]
+Getting iterator at begin ... ok.
+Finding value 0 from position: 0 ... FOUND.
+Getting iterator at begin ... ok.
+Finding value 9 from position: 0 ... FOUND.
+Getting iterator at begin ... ok.
+Finding value 8 from position: 0 ... FOUND.
+Getting iterator at begin ... ok.
+Finding value 3 from position: 0 ... NOT FOUND.
+Getting iterator at begin ... ok.
+Finding value 6 from position: 0 ... FOUND.
+Move iterator to next 1 positions ... ok.
+Finding value 6 from position: 6 ... FOUND.
+Move iterator to next 1 positions ... ok.
+Finding value 6 from position: 8 ... NOT FOUND.
+Getting iterator at begin ... ok.
+Finding value 5 from position: 0 ... FOUND.
+Move iterator to next 1 positions ... ok.
+Finding value 5 from position: 4 ... FOUND.
+Move iterator to next 1 positions ... ok.
+Finding value 5 from position: 7 ... NOT FOUND.

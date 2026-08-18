@@ -1,0 +1,23 @@
+Created table with size: 16
+Inserted pair <0:3> at table position: 5
+load factor: 0.0625
+Inserted pair <1:4> at table position: 10
+load factor: 0.125
+Inserted pair <2:1> at table position: 15
+load factor: 0.1875
+Inserted pair <3:0> at table position: 4
+load factor: 0.25
+Inserted pair <4:3> at table position: 9
+load factor: 0.3125
+Inserted pair <5:2> at table position: 14
+load factor: 0.375
+Inserted pair <6:3> at table position: 3
+load factor: 0.4375
+Inserted pair <7:4> at table position: 8
+load factor: 0.5
+Table size: 16
+Table: [0:- 1:- 2:- 3:<6,3> 4:<3,0> 5:<0,3> 6:- 7:- 8:<7,4> 9:<4,3> 10:<1,4> 11:- 12:- 13:- 14:<5,2> 15:<2,1> ]
+Inserted pair <8:5> at table position: 27
+load factor: 0.28125
+Table size: 32
+Table: [0:- 1:- 2:- 3:- 4:- 5:- 6:- 7:- 8:- 9:- 10:- 11:- 12:- 13:- 14:- 15:<2,1> 16:- 17:<3,0> 18:- 19:<4,3> 20:- 21:<5,2> 22:- 23:<6,3> 24:- 25:<7,4> 26:<0,3> 27:<8,5> 28:<1,4> 29:- 30:- 31:- ]

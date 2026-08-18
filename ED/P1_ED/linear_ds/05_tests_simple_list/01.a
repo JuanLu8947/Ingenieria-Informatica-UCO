@@ -1,0 +1,31 @@
+Creating a new list ... ok.
+Is it empty? Y
+List's size: 0
+Inserting 0 at from ... ok.
+Is it empty? N
+From item: 0
+List's size: 1
+Inserting 1 at from ... ok.
+Is it empty? N
+From item: 1
+List's size: 2
+Inserting 2 at from ... ok.
+Is it empty? N
+From item: 2
+List's size: 3
+Inserting 3 at from ... ok.
+Is it empty? N
+From item: 3
+List's size: 4
+Removing front ... ok.
+From item: 2
+List's size: 3
+Removing front ... ok.
+From item: 1
+List's size: 2
+Removing front ... ok.
+From item: 0
+List's size: 1
+Removing front ... ok.
+Is it empty? Y
+List's size: 0

@@ -1,0 +1,9 @@
+# insert/remove asc.
+create asc
+is_empty
+size
+insert 5 3 2 1
+item
+remove
+size
+print

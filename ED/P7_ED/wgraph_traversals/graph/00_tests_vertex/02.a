@@ -1,0 +1,4 @@
+Creating a vertex with label 0 ... ok.
+Vertex with label 0 visited flag: F data: 'C' data key: 'C'.
+Setting item of vertex with label 0 to 'D' ...ok.
+Vertex with label 0 visited flag: F data: 'D' data key: 'D'.

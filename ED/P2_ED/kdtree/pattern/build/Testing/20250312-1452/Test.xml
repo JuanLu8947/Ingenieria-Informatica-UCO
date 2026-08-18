@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250312-1452-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.28.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="JuanLu"
+	OSRelease="5.15.167.4-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Tue Nov 5 00:21:55 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="25"
+	ModelID="68"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="2048"
+	TotalPhysicalMemory="7852"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3094.3"
+	>
+	<Testing>
+		<StartDateTime>Mar 12 15:52 CET</StartDateTime>
+		<StartTestTime>1741791142</StartTestTime>
+		<TestList>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/TestPattern</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/TestDataset</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/TestPatternDistances</Test>
+		</TestList>
+		<Test Status="failed">
+			<Name>TestPattern</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/TestPattern</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "01_tests_pattern"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0908061</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "01_tests_pattern"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwjC8BChTHFySWlKQW5ekbGCjo6ekpSEcbG+WGgJQWJBYXp6boSUcb5HKFENBrRIFeY5heQ4jetMy8zOKM1BSF8sySDIXUoqL8IoXk/JRUBV1DQ7CBBE00IdlEI30TBbAhMJdzAQAW+WKQ====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="failed">
+			<Name>TestDataset</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/TestDataset</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "02_tests_pattern_dataset"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0968352</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "02_tests_pattern_dataset"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJy1zDsOwjAQRdHeW0jzNoBj8xfrcJfCsvBAXGQSzQxi+3xWAEXaK92TSA3yYG58vyBss72D5qWYkXCuxYqS9eEA7z26YRen9FlujZuOVPFsNoJEZsF1roRNjN0QJufSj/JxNfm0mnz+Ww79Hl8MS1Gl6t0LwOx+IQ==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestPatternDistances</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/TestPatternDistances</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "03_tests_pattern_distances"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0848404</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/pattern/build//test_pattern" "03_tests_pattern_distances"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwji8BChTHFySWlKQW5cWnZBaXJOYlpxbrG5go6OnpKUhHGxvlhoA0FSQWF6em6ElHG+RyhRBtiikeU4z0jRTAGmGiXAAAuzU0====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Mar 12 15:52 CET</EndDateTime>
+		<EndTestTime>1741791143</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

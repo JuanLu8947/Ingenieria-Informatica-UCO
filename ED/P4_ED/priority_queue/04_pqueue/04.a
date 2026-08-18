@@ -1,0 +1,10 @@
+Creating heap with order: ascended
+Enqueue:  6 1 1 3 6 2 9 4 2 2
+front = 1
+Dequeue:  ok.
+front = 1
+Dequeue:  ok.
+front = 2
+Dequeue:  ok.
+front = 2
+size = 7

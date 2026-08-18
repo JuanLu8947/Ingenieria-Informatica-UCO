@@ -1,0 +1,14 @@
+Inserted key: '123'.
+Inserted key: '1231'.
+Inserted key: '1232'.
+Inserted key: '1233'.
+Inserted key: '1234'.
+Inserted key: '1235'.
+Finding subtrie for prefix '123' ... (found)
+Trie's prefix: '123'.
+Finding symbol '3' ... found.
+Current exist? yes.
+Current symbol '3'.
+Current trie's prefix '1233'.
+Finding symbol '6' ... not found.
+Current exist? no.

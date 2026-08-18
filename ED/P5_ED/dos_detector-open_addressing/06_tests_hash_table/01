@@ -1,0 +1,25 @@
+#HASH TABLE CHECK INSERTION WITH REHASHING
+create 16 4294967311 21 5
+insert 0 3
+load_factor
+insert 1 4
+load_factor
+insert 2 1
+load_factor
+insert 3 0
+load_factor
+insert 4 3
+load_factor
+insert 5 2
+load_factor
+insert 6 3
+load_factor
+insert 7 4
+load_factor
+size
+show
+insert 8 5
+load_factor
+size
+show
+

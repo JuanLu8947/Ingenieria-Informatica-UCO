@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_list.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_list.dir\\test_list.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P1_ED\\linear_ds\\test_list.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/test_list.cpp",
+  "output": "CMakeFiles/test_list.dir/test_list.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_dnode.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_dnode.dir\\test_list.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P1_ED\\linear_ds\\test_list.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/test_list.cpp",
+  "output": "CMakeFiles/test_dnode.dir/test_list.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_iterator.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_iterator.dir\\test_list.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P1_ED\\linear_ds\\test_list.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/test_list.cpp",
+  "output": "CMakeFiles/test_iterator.dir/test_list.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_stack.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_stack.dir\\test_stack.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P1_ED\\linear_ds\\test_stack.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/test_stack.cpp",
+  "output": "CMakeFiles/test_stack.dir/test_stack.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_cdarray.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_cdarray.dir\\test_cdarray.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P1_ED\\linear_ds\\test_cdarray.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/test_cdarray.cpp",
+  "output": "CMakeFiles/test_cdarray.dir/test_cdarray.cpp.obj"
+},
+{
+  "directory": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/test_queue.dir/includes_CXX.rsp -Wall -O0 -ggdb3 -std=gnu++11 -o CMakeFiles\\test_queue.dir\\test_queue.cpp.obj -c C:\\Users\\JuanLu\\Desktop\\UCO\\2Carrera\\EstructuraDatos(ED)\\Practicas_ED\\P1_ED\\linear_ds\\test_queue.cpp",
+  "file": "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/test_queue.cpp",
+  "output": "CMakeFiles/test_queue.dir/test_queue.cpp.obj"
+}
+]

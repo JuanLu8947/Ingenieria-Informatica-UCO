@@ -1,0 +1,30 @@
+Inserted key: '123'.
+Inserted key: '1231'.
+Inserted key: '1232'.
+Inserted key: '1233'.
+Inserted key: '1234'.
+Inserted key: '1235'.
+Finding subtrie for prefix '123' ... (found)
+Trie's prefix: '123'.
+Going to first symbol ...  ok.
+Current exist? yes.
+Current symbol '1'.
+Current trie's prefix '1231'.
+Going to next symbol ...  ok.
+Current exist? yes.
+Current symbol '2'.
+Current trie's prefix '1232'.
+Going to next symbol ...  ok.
+Current exist? yes.
+Current symbol '3'.
+Current trie's prefix '1233'.
+Going to next symbol ...  ok.
+Current exist? yes.
+Current symbol '4'.
+Current trie's prefix '1234'.
+Going to next symbol ...  ok.
+Current exist? yes.
+Current symbol '5'.
+Current trie's prefix '1235'.
+Going to next symbol ...  ok.
+Current exist? no.

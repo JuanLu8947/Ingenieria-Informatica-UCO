@@ -1,0 +1,10 @@
+* 1.0
+- Start release.
+* 1.1
+- Improve test cases.
+* 1.2
+- Update include directory specification in CMakeLists.txt to use CMAKE_CURRENT_SOURCE_DIR.
+- Refactor Pattern class to simplify constructors, remove unused methods, and improve memory management.
+- Automatize testing with ctest.
+- Update to course 24-25.
+

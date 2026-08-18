@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="(empty)"
+	tests="11"
+	failures="0"
+	disabled="0"
+	skipped="11"
+	hostname=""
+	time="0"
+	timestamp="2025-03-08T14:28:15"
+	>
+	<testcase name="TestCDArray" classname="TestCDArray" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestCDArrayFoldUnfold" classname="TestCDArrayFoldUnfold" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestQueue" classname="TestQueue" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestDNode" classname="TestDNode" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestSimpleList" classname="TestSimpleList" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestListNode" classname="TestListNode" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestListIterator" classname="TestListIterator" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestListEditing" classname="TestListEditing" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestListFoldUnfold" classname="TestListFoldUnfold" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestListAlgorithm" classname="TestListAlgorithm" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+	<testcase name="TestStack" classname="TestStack" time="0" status="notrun">
+		<skipped message="Failed to change working directory"/>
+		<properties/>
+		<system-out>Failed to change working directory to "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds": No such file or directory</system-out>
+	</testcase>
+</testsuite>

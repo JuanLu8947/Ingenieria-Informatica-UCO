@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "linear_ds",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test_cdarray::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_cdarray-Debug-118ebb4b8d54f270dc1c.json",
+					"name" : "test_cdarray",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_dnode::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_dnode-Debug-21e84948974e61df780b.json",
+					"name" : "test_dnode",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_iterator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_iterator-Debug-b27406b586404227d28d.json",
+					"name" : "test_iterator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_list::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_list-Debug-5d6f041b2e8dff6afffb.json",
+					"name" : "test_list",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_queue::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_queue-Debug-961d29d18efd8cfb9476.json",
+					"name" : "test_queue",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_stack::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_stack-Debug-1549e5c9789ed9cbbb19.json",
+					"name" : "test_stack",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds/build",
+		"source" : "C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P1_ED/linear_ds"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

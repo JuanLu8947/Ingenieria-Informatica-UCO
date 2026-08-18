@@ -1,0 +1,34 @@
+Creating a new list ... ok.
+Inserting 3 at from ... ok.
+Inserting 2 at from ... ok.
+Inserting 1 at from ... ok.
+Inserting 0 at from ... ok.
+From item: 0
+List's size: 4
+Getting iterator at begin ... ok.
+Getting iterator's item: 0
+Move iterator to next 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 1
+Move iterator to next 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 2
+Move iterator to next 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 3
+Move iterator to next 1 positions ... ok.
+Is iterator at end position?: Y
+Move iterator to prev 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 3
+Move iterator to prev 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 2
+Move iterator to prev 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 1
+Move iterator to prev 1 positions ... ok.
+Is iterator at end position?: N
+Getting iterator's item: 0
+Move iterator to prev 1 positions ... ok.
+Is iterator at end position?: Y

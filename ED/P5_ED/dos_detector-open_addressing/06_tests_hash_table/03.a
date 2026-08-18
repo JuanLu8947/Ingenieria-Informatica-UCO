@@ -1,0 +1,19 @@
+Created table with size: 16
+Inserted pair <0:0> at table position: 5
+Inserted pair <1:10> at table position: 8
+Inserted pair <2:0> at table position: 11
+Inserted pair <4:0> at table position: 1
+Inserted pair <5:0> at table position: 4
+Inserted pair <6:0> at table position: 7
+Inserted pair <7:0> at table position: 10
+Is valid?: True
+Current key: '7'.
+Current value: '0'.
+Has key '3'?: no
+Is valid?: True
+Current key: '7'.
+Current value: '0'.
+Has key '5'?: yes
+Is valid?: True
+Current key: '7'.
+Current value: '0'.

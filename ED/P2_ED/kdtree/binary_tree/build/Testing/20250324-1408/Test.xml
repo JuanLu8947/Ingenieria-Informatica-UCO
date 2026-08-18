@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250324-1408-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.28.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="JuanLu"
+	OSRelease="5.15.167.4-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Tue Nov 5 00:21:55 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="25"
+	ModelID="68"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="2048"
+	TotalPhysicalMemory="7852"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3094.31"
+	>
+	<Testing>
+		<StartDateTime>Mar 24 15:08 CET</StartDateTime>
+		<StartTestTime>1742825303</StartTestTime>
+		<TestList>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTNode</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeFoldUnfold</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeHeightSize</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeTraversals</Test>
+			<Test>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeInOrder</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>TestBTNode</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTNode</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree_node" "01_tests_btree_node"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0892019</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree_node" "01_tests_btree_node"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwjC8BChTHJ5UUpabG5+WnpOobGCjo6ekpSEcbG+WGgFQXJBYXp6boSUcb5HKFENZuSJl2I8q0G+PRbqJvogDWARPlAgCGc1iJ====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestBTreeFoldUnfold</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeFoldUnfold</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "02_tests_btree_fold_unfold"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.172962</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "02_tests_btree_fold_unfold"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwii8BChTHJ5UUpabGp+XnpMSX5oEofQMDBT09PQXpaGOj3BCQpoLE4uLUFD3paINcrhCiTTGkiilGVDHFmCqmmFDFFFNqmGJIlTgypEocGVIljgzxxZGhAcjHYK0wcS4Au7nyHA==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestBTreeHeightSize</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeHeightSize</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "03_tests_btree_height_size"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.14171</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "03_tests_btree_height_size"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwji8BChTHJ5UUpabGZ6RmpmeUxBdnVqXqG5gq6OnpKUhHGxvlhoA0FSQWF6em6ElHG+RyhRBtihlVTDGniikWVDHFEo8ppvqmCmCNMFEuAIjIfAM=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestBTreeTraversals</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeTraversals</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "04_tests_traversals"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.127082</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "04_tests_traversals"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJwLSS0uUSgqzcvLzEu3UjAwiS8BChTHlxQllqUWFSfmFOsbGijo6ekpSEcbG+WGgFQXJBYXp6boSUcb5HKFENZuSJl2I8q0G1Ok3YgyvxtR5ncjyvxuhM/vFvoWCmAdMFEuABeCrPs=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>TestBTreeInOrder</Name>
+			<Path>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree</Path>
+			<FullName>/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/TestBTreeInOrder</FullName>
+			<FullCommandLine>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "05_tests_inorder"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.20564</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "run_tests.py" "/mnt/c/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P2_ED/kdtree/binary_tree/build//test_btree" "05_tests_inorder"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyl0DsKgDAQhOHeK9jsCWLirgqeI10KEQxiYZRE7+8DbBWcdpiv+a1PG8U9hCmMLemq284hdVNY4uBjwZqUUpQ7Lmd7Xdc+JT+o3Ok5sx/WALYELANW/lsBWgnQSoBWArQSpFUF2BqwzYs1XBimGzx7dgBBfQTX====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Mar 24 15:08 CET</EndDateTime>
+		<EndTestTime>1742825303</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

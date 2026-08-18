@@ -1,0 +1,4 @@
+#TEST IP UTILS TO_INT
+load 0.0.0.1
+show
+to_int

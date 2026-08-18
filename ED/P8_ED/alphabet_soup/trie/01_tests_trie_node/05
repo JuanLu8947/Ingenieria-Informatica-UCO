@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# test utf-8 characters
+SET_CHILD Á
+SET_CHILD €
+SET_CHILD ü
+SET_CHILD ¬
+PRINT
+HAS Á
+HAS É

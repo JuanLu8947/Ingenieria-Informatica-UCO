@@ -1,0 +1,6 @@
+# Test directed graph creation
+GRAPH_CREATE 1
+IS_DIRECTED
+IS_EMPTY
+NUM_VERTICES
+NUM_EDGES

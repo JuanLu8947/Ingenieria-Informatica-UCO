@@ -1,0 +1,27 @@
+STRING
+DIRECTED
+9
+A
+B
+C
+D
+E
+F
+G
+H
+I
+14
+A B 0
+A C 0
+B D 0
+B F 0
+C G 0
+C I 0
+D F 0
+D H 0
+E C 0
+F H 0
+G E 0
+H B 0
+I G 0
+I H 0

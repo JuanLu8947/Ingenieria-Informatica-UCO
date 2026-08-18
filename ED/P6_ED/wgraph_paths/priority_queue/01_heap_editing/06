@@ -1,0 +1,14 @@
+# editing
+create asc
+insert 24 19 39 6 15 38 37 42 73 68
+print
+remove
+print
+insert 21 31 56 82 32
+print
+remove
+remove
+print
+insert 48 35 92 72 43 66 75
+size
+print

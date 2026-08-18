@@ -1,0 +1,7 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Finding vertex with key 'D' ...  didn't found.
+Current vertex doesn't exist.

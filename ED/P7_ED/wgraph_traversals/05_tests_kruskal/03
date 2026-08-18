@@ -1,0 +1,28 @@
+KRUSKAL
+STRING
+UNDIRECTED
+9
+a
+b
+c
+d
+e
+f
+g
+h
+i
+14
+a b 9
+a h 1
+b c 1
+b i 6
+b h 1
+c d 5
+c g 1
+d e 9
+d h 7
+e f 5
+e i 1
+f g 1
+f i 1
+g h 3

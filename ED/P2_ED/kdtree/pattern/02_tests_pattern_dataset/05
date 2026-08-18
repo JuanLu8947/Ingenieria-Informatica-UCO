@@ -1,0 +1,7 @@
+# Test dataset
+LOAD_DATASET
+2 5
+[ 0 [ -1 2 -3 4 -5 ] ]
+[ 1 [ 5 2 3 4 1 ] ]
+FOLD_PATTERN 0
+FOLD_PATTERN 1

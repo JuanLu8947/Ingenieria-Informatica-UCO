@@ -1,0 +1,10 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Finding vertex with key 'A' ...  found.
+Current vertex with label 0 visited flag: F data: 'A' data key: 'A'.
+Moving cursor to next vertex ... ok.
+Finding next vertex with key 'A' ...  didn't found.
+Current vertex doesn't exist.

@@ -1,0 +1,4 @@
+Unfolding the string ' [ 1 2 3 4 5 ]' ... ok.
+Array size = 5
+Array capacity = 8
+Folding array: [ 1 2 3 4 5 ]

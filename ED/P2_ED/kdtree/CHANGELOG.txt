@@ -1,0 +1,18 @@
+* 1.0
+- Start release from old code.
+* 1.1
+- Split tests files to test L1 and L2 separately.
+- Using standard c++14 to use std::nth_element function.
+- Fixed bug setting k when unfolding kdtree.
+* 1.2
+- Updated to course 23-24.
+* 1.3
+- Fixed bug when generating DO_NOT_MODIFY.txt file.
+* 1.4
+- Updated changes in binary_tree module.
+- Refactor KDTree to eliminate shared pointer usage and simplify method signatures.
+- Fixed bug using nth_element function.
+- Set c++ standard to 11.
+- Automatize testing with ctest.
+- Updated to course 24-25.
+

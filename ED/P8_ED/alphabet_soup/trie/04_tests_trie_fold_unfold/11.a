@@ -1,0 +1,5 @@
+Inserted key: 'HOLA MUNDO1'.
+Inserted key: 'HOLA MUNDO2'.
+Inserted key: 'HOLA TIERRA'.
+Finding subtrie for prefix 'HOLA' ... (found)
+Fold trie: [ "HOLA" [ F   [ F M [ F U [ F N [ F D [ F O [ F 1 [ T ] 2 [ T ] ] ] ] ] ] T [ F I [ F E [ F R [ F R [ F A [ T ] ] ] ] ] ] ] ] ]

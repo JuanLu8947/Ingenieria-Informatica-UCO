@@ -1,0 +1,5 @@
+#test edge creation
+VERTEX_CREATE 0 'A'
+VERTEX_CREATE 1 'B'
+EDGE_CREATE 0 0 1 0.5
+EDGE_PRINT 0

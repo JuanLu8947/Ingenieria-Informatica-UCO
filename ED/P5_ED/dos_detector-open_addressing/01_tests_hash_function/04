@@ -1,0 +1,7 @@
+# Universal Hash function with parameters m p a b key
+HASH 16 23 1 1 15
+HASH 16 23 1 1 11
+HASH 16 23 2 5 15
+HASH 16 23 2 5 11
+HASH 32 1001 2 5 15
+HASH 32 1001 2 5 11

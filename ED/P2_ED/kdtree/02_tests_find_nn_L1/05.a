@@ -1,0 +1,5 @@
+Loading dataset:  size = 7 patterns with dims = 2
+Creating kdtree from dataset ...  ok.
+Find NN for p=[ -1 [ 0 0 ] ]
+L1 nn  : [ 0 [ 0 -7.7 ] ]
+L1 dist: 7.7

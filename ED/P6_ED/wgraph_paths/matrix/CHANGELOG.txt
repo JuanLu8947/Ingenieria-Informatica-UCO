@@ -1,0 +1,5 @@
+* 1.0
+- Start release.
+* 1.0.1
+- Fixed bug in windows. Include <string> to use std:stof.
+- Updated CMakelists.txt version and set c++11 as standard.

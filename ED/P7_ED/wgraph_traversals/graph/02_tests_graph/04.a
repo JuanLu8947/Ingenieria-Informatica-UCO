@@ -1,0 +1,6 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Current vertex with label 1 visited flag: F data: 'B' data key: 'B'.
+Moving vertex iterator to vertex with key 'A' ... ok.
+Current vertex with label 0 visited flag: F data: 'A' data key: 'A'.

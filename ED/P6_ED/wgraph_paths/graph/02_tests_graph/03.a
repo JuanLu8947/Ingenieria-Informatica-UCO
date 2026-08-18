@@ -1,0 +1,12 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Has the graph the vertex with label = 0? Y
+Adding vertex with data item: 'B' ... ok.
+Has the graph the vertex with label = 1? Y
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Has the graph an edge  linking the vertex with label 0 with  vertex with label 1? Y
+Number of vertices: 2
+Number of edges: 1
+Checking visited flags:
+	Vertex 'A':F incident edges: (A,B):F
+	Vertex 'B':F incident edges:

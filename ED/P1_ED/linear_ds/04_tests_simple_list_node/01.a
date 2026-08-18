@@ -1,0 +1,4 @@
+Creating node 0 ... ok.
+Creating node 1 ... ok.
+Linking node 1 as next of node 0 ... ok.
+Next item of 0 is 1

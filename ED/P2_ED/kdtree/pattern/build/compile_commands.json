@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/juanlu/ED/P2/kdtree/pattern/build",
+  "command": "/usr/bin/g++ -I/home/juanlu/ED/P2/kdtree/pattern -O0 -ggdb3 -std=gnu++11 -o CMakeFiles/pattern.dir/pattern.cpp.o -c /home/juanlu/ED/P2/kdtree/pattern/pattern.cpp",
+  "file": "/home/juanlu/ED/P2/kdtree/pattern/pattern.cpp",
+  "output": "CMakeFiles/pattern.dir/pattern.cpp.o"
+},
+{
+  "directory": "/home/juanlu/ED/P2/kdtree/pattern/build",
+  "command": "/usr/bin/g++ -I/home/juanlu/ED/P2/kdtree/pattern -O0 -ggdb3 -std=gnu++11 -o CMakeFiles/test_pattern.dir/test_pattern.cpp.o -c /home/juanlu/ED/P2/kdtree/pattern/test_pattern.cpp",
+  "file": "/home/juanlu/ED/P2/kdtree/pattern/test_pattern.cpp",
+  "output": "CMakeFiles/test_pattern.dir/test_pattern.cpp.o"
+},
+{
+  "directory": "/home/juanlu/ED/P2/kdtree/pattern/build",
+  "command": "/usr/bin/g++ -I/home/juanlu/ED/P2/kdtree/pattern -O0 -ggdb3 -std=gnu++11 -o CMakeFiles/test_pattern.dir/pattern.cpp.o -c /home/juanlu/ED/P2/kdtree/pattern/pattern.cpp",
+  "file": "/home/juanlu/ED/P2/kdtree/pattern/pattern.cpp",
+  "output": "CMakeFiles/test_pattern.dir/pattern.cpp.o"
+}
+]

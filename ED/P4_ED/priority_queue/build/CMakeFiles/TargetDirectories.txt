@@ -1,0 +1,5 @@
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build/CMakeFiles/test_heap.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build/CMakeFiles/test_pqueue.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build/CMakeFiles/test.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build/CMakeFiles/edit_cache.dir
+C:/Users/JuanLu/Desktop/UCO/2Carrera/EstructuraDatos(ED)/Practicas_ED/P4_ED/priority_queue/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,16 @@
+Creating an undirected graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','C') with data item: '0.7' ... ok.
+Reseting visited flags to T ...  ok.
+Checking visited flags:
+	Vertex 'A':T incident edges: (A,B):T
+	Vertex 'B':T incident edges: (A,B):T (B,C):T
+	Vertex 'C':T incident edges: (B,C):T
+Reseting visited flags to F ...  ok.
+Checking visited flags:
+	Vertex 'A':F incident edges: (A,B):F
+	Vertex 'B':F incident edges: (A,B):F (B,C):F
+	Vertex 'C':F incident edges: (B,C):F

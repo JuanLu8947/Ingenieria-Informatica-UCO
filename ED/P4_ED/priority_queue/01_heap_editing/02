@@ -1,0 +1,6 @@
+# insert ascended.
+create asc
+is_empty
+size
+insert 3 2 1
+print

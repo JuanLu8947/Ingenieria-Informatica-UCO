@@ -1,0 +1,18 @@
+* 1.0
+- Start release.
+* 2.0
+- Adapted to course 22-23
+- Use C++11 <random> based bit generators.
+- Added README
+- Recoded hashing to be more OO.
+* 2.1
+- M must be two power only when quadratic probing is used.
+* 2.2
+- Changed doble hashing by rehashing.
+* 2.3
+- Fixed compiling bug. Use type std::uint64_t for the m parameter in UHash class constructors.
+* 2.4
+- Add state management methods to OACollisionResolution for improved collision handling.
+- Added ADT HashTableIterator.
+- Updated to course 24-25.
+

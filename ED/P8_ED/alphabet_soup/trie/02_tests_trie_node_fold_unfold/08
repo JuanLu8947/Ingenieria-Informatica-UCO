@@ -1,0 +1,4 @@
+# -*- coding: utf-8 -*-
+# test utf-8 characters
+UNFOLD [ F ¬ [ F ] Á [ F ] ü [ F ] € [ F ] ]
+FOLD

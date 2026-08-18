@@ -1,0 +1,20 @@
+Creating a directed graph ...  ok.
+Adding vertex with data item: 'A' ... ok.
+Adding vertex with data item: 'B' ... ok.
+Adding vertex with data item: 'C' ... ok.
+Adding edge 0 for vertices ('A','B') with data item: '0.5' ... ok.
+Adding edge 1 for vertices ('B','A') with data item: '0.25' ... ok.
+Adding edge 2 for vertices ('B','C') with data item: '1' ... ok.
+Adding edge 3 for vertices ('C','B') with data item: '0.25' ... ok.
+Folding graph ... 
+DIRECTED
+3
+A
+B
+C
+4
+A B 0.5
+B A 0.25
+B C 1
+C B 0.25
+

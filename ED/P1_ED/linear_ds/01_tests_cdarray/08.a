@@ -1,0 +1,13 @@
+Creating cdarray with capacity 4 ... ok.
+Push back 1 ... ok.
+Push back 2 ... ok.
+Push back 3 ... ok.
+Push back 4 ... ok.
+Array size = 4
+Array capacity = 4
+Removing from pos 1 the value 2 ... ok.
+Array size = 3
+Array capacity = 4
+Value at pos 0 is 1
+Value at pos 1 is 3
+Value at pos 2 is 4

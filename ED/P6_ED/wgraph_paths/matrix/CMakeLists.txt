@@ -1,0 +1,16 @@
+cmake_minimum_required (VERSION 3.10)
+project (matrix VERSION 1.0.1 LANGUAGES CXX)
+
+enable_language(CXX)
+set(CMAKE_CXX_STANDARD 11)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    set(CMAKE_CXX_FLAGS "/W4")
+    set(CMAKE_CXX_FLAGS_DEBUG "/Od /Zi /EHsc /DEBUG")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS "-Wall")
+    set(CMAKE_CXX_FLAGS_DEBUG "-O0 -ggdb3")
+endif()
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(matrix STATIC matrix.hpp matrix.cpp)
+link_libraries(matrix)
