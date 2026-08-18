@@ -1,0 +1,9 @@
+Este es un archivo diseñado específicamente para la clase de Programación y Administración de Sistemas del año 2024.
+Su propósito es facilitar la práctica y comprensión de conceptos esenciales en el manejo de grep sed, tr ... de la práctica 2.
+Incluye una serie de elementos como números, palabras y signos de puntuación; para verificar el correcto funcionamiento de scripts.
+Además, este texto incluye algunos números: 12345, 67890 y palabras con diferentes formatos, como Bash, prácticas, NÚMEROS y signos.
+Incluso contiene ejemplos numéricos como 444, 990, 98765, y 43210 para añadir complejidad.
+
+El objetivo es aprender a manipular y procesar archivos de texto mediante el uso de scripts en Bash.
+Finalmente, este documento sirve como base para entender cómo trabajar con expresiones regulares, filtrado de contenido, y transformaciones de texto.
+123 veces pensé en las posibilidades de Bash para manipular texto de manera eficiente con grep, sed, tr, tail...

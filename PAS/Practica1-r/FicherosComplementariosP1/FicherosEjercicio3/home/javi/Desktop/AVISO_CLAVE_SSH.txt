@@ -1,0 +1,1 @@
+Por favor, asegúrate de que los permisos de tu clave privada SSH estén configurados correctamente.
