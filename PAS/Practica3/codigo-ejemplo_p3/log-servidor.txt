@@ -1,0 +1,11 @@
+[Sun May  5 17:39:36 2024
+] Señal recibida: 2
+[2024-05-05, 18:35:05] ==> Received signal: 2
+[Mon May  6 12:15:14 2024
+] Señal recibida: 2
+[2024-05-16, 11:36:52] ==> Recibido el mensaje: hola
+
+
+[2024-05-17, 11:10:38] ==> Recibido el mensaje: pepe
+
+
